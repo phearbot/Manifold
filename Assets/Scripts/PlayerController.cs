@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float sensitivityX = 1.0f;
 	[SerializeField] float sensitivityY = 1.0f;
+
+    [SerializeField] float gravity = -9.83f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +39,17 @@ public class PlayerController : MonoBehaviour
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
 		Vector3 move = transform.right * x + transform.forward * z;
-		controller.Move(move * 5f * moveSpeed * Time.deltaTime);
+
+        playerVelocity += new Vector3(0, gravity * Time.deltaTime, 0);
+		controller.Move(move * 5f * moveSpeed * Time.deltaTime + (Vector3.down * Time.deltaTime * 10f));
+
+        //playerVelocity = new Vector3(0, controller.velocity.y, 0);
+		//playerVelocity.y += gravity * Time.deltaTime;
+		//controller.Move(playerVelocity * Time.deltaTime);
+
 	}
 
-    private void FixedUpdate()
+	private void FixedUpdate()
     {
 
 
