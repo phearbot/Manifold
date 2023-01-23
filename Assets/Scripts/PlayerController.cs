@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float sensitivityX = 1.0f;
 	[SerializeField] float sensitivityY = 1.0f;
 
-    [SerializeField] float gravity = -9.83f;
+    [SerializeField] float gravity = -9.81f;
+    [SerializeField] float maxGravitySpeed = .5f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,10 +41,20 @@ public class PlayerController : MonoBehaviour
 		float z = Input.GetAxis("Vertical");
 		Vector3 move = transform.right * x + transform.forward * z;
 
-        playerVelocity += new Vector3(0, gravity * Time.deltaTime, 0);
-		controller.Move(move * 5f * moveSpeed * Time.deltaTime + (Vector3.down * Time.deltaTime * 10f));
+        if (controller.isGrounded)
+        {
+            playerVelocity = Vector3.zero;
+		}
+        else
+        {
+			playerVelocity += new Vector3(0, gravity * Time.deltaTime, 0);
+			playerVelocity = new Vector3(0, Mathf.Clamp(playerVelocity.y, -maxGravitySpeed, maxGravitySpeed));
+            //print("playerVelocity: " + playerVelocity);
+		}
 
-        //playerVelocity = new Vector3(0, controller.velocity.y, 0);
+		controller.Move(move * 5f * moveSpeed * Time.deltaTime + playerVelocity);
+
+		//playerVelocity = new Vector3(0, controller.velocity.y, 0);
 		//playerVelocity.y += gravity * Time.deltaTime;
 		//controller.Move(playerVelocity * Time.deltaTime);
 

@@ -60,19 +60,16 @@ public class WorldManager : MonoBehaviour
 
         if (player.transform.position.x > worldRepeatDistanceX / 2f)
         {
-            print("x");
 			x = player.transform.position.x - worldRepeatDistanceX;
             clamp = true;
 		}
         if (player.transform.position.y > worldRepeatDistanceY / 2f)
         {
-            print("y");
 			y = player.transform.position.y - worldRepeatDistanceY;
 			clamp = true;
 		}
 		if (player.transform.position.z > (worldRepeatDistanceZ / 2f))
         {
-            print(player.transform.position.z + " : " + worldRepeatDistanceZ / 2f);
 			z = player.transform.position.z - worldRepeatDistanceZ;
 			clamp = true;
 		}
@@ -80,19 +77,16 @@ public class WorldManager : MonoBehaviour
 		// Find a way to do this section better
 		if (player.transform.position.x < -worldRepeatDistanceX / 2f)
 		{
-			print("x");
 			x = player.transform.position.x + worldRepeatDistanceX;
 			clamp = true;
 		}
 		if (player.transform.position.y < -worldRepeatDistanceY / 2f)
 		{
-			print("y");
 			y = player.transform.position.y + worldRepeatDistanceY;
 			clamp = true;
 		}
 		if (player.transform.position.z < -worldRepeatDistanceZ / 2f)
 		{
-			print(player.transform.position.z + " : " + (float)worldRepeatDistanceZ / 2f);
 			z = player.transform.position.z + worldRepeatDistanceZ;
 			clamp = true;
 		}
@@ -101,7 +95,7 @@ public class WorldManager : MonoBehaviour
 		if (clamp)
         {
             Vector3 newPos = new Vector3(x, y, z);
-            print(player.transform.position + " clamping to " + newPos);
+            //print(player.transform.position + " clamping to " + newPos);
             player.transform.position = newPos;
 
 		}
