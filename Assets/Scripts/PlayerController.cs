@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -16,7 +17,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float gravity = -9.81f;
-    [SerializeField] float maxGravitySpeed = .5f;
+    [SerializeField] float maxGravityMagnitude = .5f;
+    [SerializeField] float groundedRaycastLength;
+    bool isGrounded;
 
     Canvas canvas;
     Image reticle;
@@ -45,26 +48,32 @@ public class PlayerController : MonoBehaviour
 
 	void HandleMovement()
     {
+        CheckForGrounded();
+
 		wasdReference.transform.localRotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
 		Vector3 move = mainCam.transform.right * x + wasdReference.transform.forward * z;
 
-		if (controller.isGrounded)
-		{
-			playerGravityVelocity = Vector3.zero;
-		}
-		else
-		{
-            // Increment Velocity and clamp it to max speed (up or down)
-            //print(transform.up);
-			playerGravityVelocity +=  Vector3.ClampMagnitude((transform.up * gravity * Time.deltaTime), maxGravitySpeed);
-            print(playerGravityVelocity);
-			//playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed)); // This clamp assumes gravity is always Y axis
-		}
+        // print(controller.isGrounded);
+
+        // Only apply gravity is player is not grounded
+		if (isGrounded)
+			playerGravityVelocity = transform.up * gravity * Time.deltaTime;
+		else if (controller.velocity.sqrMagnitude < maxGravityMagnitude)
+			playerGravityVelocity += transform.up * gravity * Time.deltaTime;
+
 
 		// Apply movement on local X/Z axes
 		controller.Move(move * 5f * moveSpeed * Time.deltaTime + playerGravityVelocity);
+
+	}
+
+    void CheckForGrounded()
+    {
+        // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
+		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
+        print("isGrounded: " + isGrounded);
 	}
 
     void CheckReticle()
@@ -78,7 +87,7 @@ public class PlayerController : MonoBehaviour
         }
 		else
             reticle.color = Color.white;
-
+        
 
     }
 

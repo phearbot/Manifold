@@ -154,6 +154,16 @@ PrefabInstance:
       propertyPath: zPos.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
+        type: 3}
+      propertyPath: maxGravityMagnitude
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
+        type: 3}
+      propertyPath: groundedRaycastLength
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8619448723828511122, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
         type: 3}
       propertyPath: m_RootOrder
