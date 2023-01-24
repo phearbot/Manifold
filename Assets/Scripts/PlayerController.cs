@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     Canvas canvas;
     Image reticle;
+    NormalColorMapper mapper;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
+        mapper = GetComponent<NormalColorMapper>();
     }
 
     // Update is called once per frame
@@ -69,8 +71,12 @@ public class PlayerController : MonoBehaviour
         bool castHit = Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out RaycastHit hitInfo, reticleCheckDistance);
 
         if (castHit)
-            reticle.color = Color.red;
-        else
+        {
+            Color col = mapper.MapNormalToColor(hitInfo.normal);
+            print(hitInfo.normal);
+            reticle.color = col;
+        }
+		else
             reticle.color = Color.white;
 
 
