@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
 	void HandleMovement()
     {
-		wasdReference.transform.rotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
+		wasdReference.transform.localRotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
 		Vector3 move = mainCam.transform.right * x + wasdReference.transform.forward * z;
@@ -56,9 +56,11 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			// Increment Velocity and clamp it to max speed (up or down)
-			playerGravityVelocity += (transform.up * gravity * Time.deltaTime);
-			playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed));
+            // Increment Velocity and clamp it to max speed (up or down)
+            //print(transform.up);
+			playerGravityVelocity +=  Vector3.ClampMagnitude((transform.up * gravity * Time.deltaTime), maxGravitySpeed);
+            print(playerGravityVelocity);
+			//playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed)); // This clamp assumes gravity is always Y axis
 		}
 
 		// Apply movement on local X/Z axes
@@ -72,9 +74,7 @@ public class PlayerController : MonoBehaviour
 
         if (castHit)
         {
-            Color col = mapper.MapNormalToColor(hitInfo.normal);
-            print(hitInfo.normal);
-            reticle.color = col;
+            reticle.color = mapper.MapNormalToColor(hitInfo.normal);
         }
 		else
             reticle.color = Color.white;
