@@ -41,7 +41,7 @@ public class WorldManager : MonoBehaviour
                     float transY = y * worldRepeatDistanceY + _offsetY;
 					float transZ = z * worldRepeatDistanceZ + _offsetZ;
                     //print(z * worldRepeatDistanceZ + " : " + (z * worldRepeatDistanceZ + _offsetZ));
-					Instantiate(levelPrefab, new Vector3(transX, transY, transZ), Quaternion.identity);
+					Instantiate(levelPrefab, new Vector3(transX, transY, transZ), Quaternion.identity, transform);
 				}
 
 			}
