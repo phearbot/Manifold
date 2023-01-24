@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -41,8 +40,8 @@ public class PlayerController : MonoBehaviour
         {
             // Increment Velocity and clamp it to max speed (up or down)
             playerGravityVelocity += (transform.up * gravity * Time.deltaTime);
-			//playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed));
-            print("playerVelocity: " + playerGravityVelocity + "; controller velocity: " + controller.velocity);
+			playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed));
+            //print("playerVelocity: " + playerGravityVelocity + "; controller velocity: " + controller.velocity);
 		}
 
         // Apply movement on local X/Z axes

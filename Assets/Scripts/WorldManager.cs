@@ -52,10 +52,15 @@ public class WorldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ClampPlayer();
+        //ClampPlayer();
     }
 
-    void ClampPlayer()
+	private void FixedUpdate()
+	{
+		ClampPlayer();
+	}
+
+	void ClampPlayer()
     {
         float x = player.transform.position.x;
         float y = player.transform.position.y;
@@ -108,7 +113,9 @@ public class WorldManager : MonoBehaviour
         {
             Vector3 newPos = new Vector3(x, y, z);
             //print(player.transform.position + " clamping to " + newPos);
+            print(player.transform.position + " : " + newPos);
             player.transform.position = newPos;
+            print("player pos after setting: " + player.transform.position);
 		}
 
 
