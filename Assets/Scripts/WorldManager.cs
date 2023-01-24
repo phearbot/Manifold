@@ -14,12 +14,10 @@ public class WorldManager : MonoBehaviour
 
     public GameObject levelPrefab;
     public GameObject player;
-    CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = player.GetComponent<CharacterController>();
         GenerateWorld();
     }
 
