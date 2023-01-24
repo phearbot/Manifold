@@ -69,7 +69,6 @@ public class WorldManager : MonoBehaviour
         bool clampX = false;
         bool clampY = false;
         bool clampZ = false;
-        //print(player.transform.position);
 
         if (player.transform.position.x > worldRepeatDistanceX / 2f)
         {
@@ -112,10 +111,7 @@ public class WorldManager : MonoBehaviour
 		if (clampX || clampY || clampZ)
         {
             Vector3 newPos = new Vector3(x, y, z);
-            //print(player.transform.position + " clamping to " + newPos);
-            print(player.transform.position + " : " + newPos);
             player.transform.position = newPos;
-            print("player pos after setting: " + player.transform.position);
 		}
 
 

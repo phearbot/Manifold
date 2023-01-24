@@ -41,12 +41,10 @@ public class PlayerController : MonoBehaviour
             // Increment Velocity and clamp it to max speed (up or down)
             playerGravityVelocity += (transform.up * gravity * Time.deltaTime);
 			playerGravityVelocity = new Vector3(0, Mathf.Clamp(playerGravityVelocity.y, -maxGravitySpeed, maxGravitySpeed));
-            //print("playerVelocity: " + playerGravityVelocity + "; controller velocity: " + controller.velocity);
 		}
 
         // Apply movement on local X/Z axes
         controller.Move(move * 5f * moveSpeed * Time.deltaTime + playerGravityVelocity);
-        //controller.velocity = new Vector3(controller.velocity.x, Mathf.Clamp(controller.velocity.y, -maxGravitySpeed, maxGravitySpeed), controller.velocity.z);
             
 	}
 
