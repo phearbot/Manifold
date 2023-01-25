@@ -7,7 +7,8 @@ public class Cube : MonoBehaviour
     Transform carryPoint;
     CustomPhysicsBody cpb;
     public bool isBeingCarried = false;
-    Rigidbody rb;
+    public Rigidbody rb;
+    CubeHousing cubeHousing;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,10 @@ public class Cube : MonoBehaviour
         carryPoint = _carryPoint;
         cpb.gravityEnabled = false;
         cpb.snapToGrid = false;
-    }
+
+		if (cubeHousing != null)
+			cubeHousing.Deactivate();
+	}
 
     public void GetDropped()
     {
@@ -46,6 +50,7 @@ public class Cube : MonoBehaviour
         cpb.gravityEnabled = true;
         cpb.snapToGrid = true;
         rb.velocity = Vector3.zero;
+
     }
 
 	private void OnTriggerEnter(Collider other)
@@ -55,6 +60,9 @@ public class Cube : MonoBehaviour
             if (isBeingCarried)
                 FindObjectOfType<PlayerController>().DropObject();
 
+            cubeHousing = other.GetComponent<CubeHousing>();
+            cubeHousing.Activate(this);
+            cpb.gravityEnabled = false;
 
         }
 	}
