@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
 		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
-        print("isGrounded: " + isGrounded);
+        print("isGrounded: " + isGrounded + "; velocity: " + controller.velocity);
 	}
 
     void CheckReticle()
