@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 		wasdReference.transform.localRotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
-		Vector3 move = mainCam.transform.right * x + wasdReference.transform.forward * z;
+		Vector3 move = (mainCam.transform.right * x + wasdReference.transform.forward * z).normalized;
 
         // print(controller.isGrounded);
 
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
 		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
-        print("isGrounded: " + isGrounded + "; velocity: " + controller.velocity);
+        print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);
 	}
 
     void CheckReticle()
