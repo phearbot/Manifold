@@ -504,7 +504,7 @@ MonoBehaviour:
   gravityReference: {fileID: 1970887208}
   wasdReference: {fileID: 3918225676615023738}
   moveSpeed: 3
-  gravity: -0.3
+  gravity: -0.1
   maxGravityMagnitude: 4000
   groundedRaycastLength: 1.1
   reticleCheckDistance: 3.2

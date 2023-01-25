@@ -7,6 +7,8 @@ public class CustomPhysicsBody : MonoBehaviour
 {
     public bool gravityEnabled;
     public bool snapToGrid = true;
+    [SerializeField] float gravityForce = 20;
+    [SerializeField] float maxVelocitySqrMagnitude = 10000;
 
     // References
     Rigidbody rb;
@@ -30,9 +32,8 @@ public class CustomPhysicsBody : MonoBehaviour
 	{
         if (gravityEnabled)
         {
-			rb.AddForce(-transform.up * 20);
-            print(rb.velocity);
-
+            if (rb.velocity.sqrMagnitude < maxVelocitySqrMagnitude) 
+				rb.AddForce(-transform.up * gravityForce);
 
             if (snapToGrid)
                 SnapToGrid();
@@ -49,8 +50,9 @@ public class CustomPhysicsBody : MonoBehaviour
 			float newZ = Mathf.Round(transform.position.z * 4) / 4;
 
 			transform.position = new Vector3(newX, transform.position.y, newZ);
-
 		}
+
+        snapToGrid = false;
 	}
 
 }

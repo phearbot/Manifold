@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         interactableHex = GameObject.Find("InteractableHex").GetComponent<Image>();
         interactableHex.enabled = false;
         canInteractSprite = Resources.Load<Sprite>("Art/Sprites/HexagonDouble");
-        print("canInteract: " + canInteractSprite);
         isInteractingSprite = Resources.Load<Sprite>("Art/Sprites/HexagonSingle");
         mapper = GetComponent<NormalColorMapper>();
     }
@@ -116,7 +115,7 @@ public class PlayerController : MonoBehaviour
     {
         // Logic for changing gravity
         bool receivedGravityShiftInput = (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space));
-        if (receivedGravityShiftInput && reticleHasColorLock)
+        if (receivedGravityShiftInput && reticleHasColorLock && cubeBeingCarried == null)
         {
             Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
 
@@ -134,12 +133,12 @@ public class PlayerController : MonoBehaviour
         {
             if (interactableTarget != null && cubeBeingCarried == null)
             {
-				SwapInteractingSprite();
+				SwapInteractingSprite(true);
 				PickupObject();
 			}
             else if (cubeBeingCarried != null) 
             {
-                DropObject();
+				DropObject();
             }
 
 
@@ -155,9 +154,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void DropObject()
+    public void DropObject()
     {
-        cubeBeingCarried.GetDropped();
+		SwapInteractingSprite(false);
+		cubeBeingCarried.GetDropped();
         cubeBeingCarried = null;
     }
 
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             reticle.color = mapper.MapNormalToColor(hitInfo.normal);
             targetNormal = hitInfo.normal;
             reticleHasColorLock = true;
-            print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
+            //print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
 
 
             // logic for interactables
@@ -203,12 +203,12 @@ public class PlayerController : MonoBehaviour
         {
 			reticle.color = Color.white;
             reticleHasColorLock = false;
-            reticleHasInteractableLock = false;
             interactableTarget = null;
+			reticleHasInteractableLock = false;
 		}
 
-        // Ideally this wouldn't be called every frame
-        interactableHex.enabled = reticleHasInteractableLock;
+        // This ensures that the hex doesn't turn off while carrying if your cursor is no longer on it.
+        interactableHex.enabled = reticleHasInteractableLock || cubeBeingCarried != null;
 	}
 
 	[ContextMenu("Flip Player")]
@@ -218,13 +218,9 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void SwapInteractingSprite()
+    
+    void SwapInteractingSprite(bool interacting)
     {
-        //print(canInteractSprite);
-
-        if (interactableHex.sprite == canInteractSprite)
-            interactableHex.sprite = isInteractingSprite;
-        else
-            interactableHex.sprite = canInteractSprite;
+        interactableHex.sprite = interacting ? isInteractingSprite : canInteractSprite;
     }
 }

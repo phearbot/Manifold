@@ -18,10 +18,13 @@ public class WorldManager : MonoBehaviour
     public GameObject levelPrefab;
     public GameObject player;
 
+    Cube[] cubes;
+
     // Start is called before the first frame update
     void Start()
     {
         GenerateWorld();
+        cubes = FindObjectsOfType<Cube>();
     }
 
     void GenerateWorld()
@@ -57,49 +60,54 @@ public class WorldManager : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		ClampPlayer();
+		ClampObject(player);
+
+        foreach (Cube cube in cubes)
+        {
+            ClampObject(cube.gameObject);
+        }
 	}
 
-	void ClampPlayer()
+	void ClampObject(GameObject objectToClamp)
     {
-        float x = player.transform.position.x;
-        float y = player.transform.position.y;
-        float z = player.transform.position.z;
+        float x = objectToClamp.transform.position.x;
+        float y = objectToClamp.transform.position.y;
+        float z = objectToClamp.transform.position.z;
 
         bool clampX = false;
         bool clampY = false;
         bool clampZ = false;
 
-        if (player.transform.position.x > worldRepeatDistanceX / 2f)
+        if (objectToClamp.transform.position.x > worldRepeatDistanceX / 2f)
         {
-			x = player.transform.position.x - worldRepeatDistanceX;
+			x = objectToClamp.transform.position.x - worldRepeatDistanceX;
             clampX = true;
 		}
-        if (player.transform.position.y > worldRepeatDistanceY / 2f)
+        if (objectToClamp.transform.position.y > worldRepeatDistanceY / 2f)
         {
-			y = player.transform.position.y - worldRepeatDistanceY;
+			y = objectToClamp.transform.position.y - worldRepeatDistanceY;
 			clampY = true;
 		}
-		if (player.transform.position.z > (worldRepeatDistanceZ / 2f))
+		if (objectToClamp.transform.position.z > (worldRepeatDistanceZ / 2f))
         {
-			z = player.transform.position.z - worldRepeatDistanceZ;
+			z = objectToClamp.transform.position.z - worldRepeatDistanceZ;
 			clampZ = true;
 		}
 
 		// Find a way to do this section better
-		if (player.transform.position.x < -worldRepeatDistanceX / 2f)
+		if (objectToClamp.transform.position.x < -worldRepeatDistanceX / 2f)
 		{
-			x = player.transform.position.x + worldRepeatDistanceX;
+			x = objectToClamp.transform.position.x + worldRepeatDistanceX;
 			clampX = true;
 		}
-		if (player.transform.position.y < -worldRepeatDistanceY / 2f)
+		if (objectToClamp.transform.position.y < -worldRepeatDistanceY / 2f)
 		{
-			y = player.transform.position.y + worldRepeatDistanceY;
+			y = objectToClamp.transform.position.y + worldRepeatDistanceY;
 			clampY = true;
 		}
-		if (player.transform.position.z < -worldRepeatDistanceZ / 2f)
+		if (objectToClamp.transform.position.z < -worldRepeatDistanceZ / 2f)
 		{
-			z = player.transform.position.z + worldRepeatDistanceZ;
+			z = objectToClamp.transform.position.z + worldRepeatDistanceZ;
 			clampZ = true;
 		}
 
@@ -111,7 +119,7 @@ public class WorldManager : MonoBehaviour
 		if (clampX || clampY || clampZ)
         {
             Vector3 newPos = new Vector3(x, y, z);
-            player.transform.position = newPos;
+            objectToClamp.transform.position = newPos;
 		}
 
 

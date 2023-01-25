@@ -47,4 +47,15 @@ public class Cube : MonoBehaviour
         cpb.snapToGrid = true;
         rb.velocity = Vector3.zero;
     }
+
+	private void OnTriggerEnter(Collider other)
+	{
+        if (other.tag == "Cube Housing")
+        {
+            if (isBeingCarried)
+                FindObjectOfType<PlayerController>().DropObject();
+
+
+        }
+	}
 }

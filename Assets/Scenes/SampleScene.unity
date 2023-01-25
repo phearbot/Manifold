@@ -869,6 +869,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132147966588136, guid: b15000ab96e2e2140afc665dca607171,
+        type: 3}
+      propertyPath: maxVelocitySqrMagnitude
+      value: 8000
+      objectReference: {fileID: 0}
     - target: {fileID: 919132147966588137, guid: b15000ab96e2e2140afc665dca607171,
         type: 3}
       propertyPath: m_Constraints
@@ -912,6 +917,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 794504036, guid: 7986199f365028f408d8bad85ff68cf6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1561341353617697735, guid: 7986199f365028f408d8bad85ff68cf6,
         type: 3}
       propertyPath: m_RootOrder
@@ -971,6 +980,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cube Housing Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225111491578884477, guid: 7986199f365028f408d8bad85ff68cf6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225111491578884477, guid: 7986199f365028f408d8bad85ff68cf6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cube Housing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968207458841558794, guid: 7986199f365028f408d8bad85ff68cf6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103684032761380092, guid: 7986199f365028f408d8bad85ff68cf6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7986199f365028f408d8bad85ff68cf6, type: 3}
