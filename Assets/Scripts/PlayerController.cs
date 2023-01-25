@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour
         CheckForGrounded();
 
 		wasdReference.transform.localRotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
-		float x = Input.GetAxis("Horizontal");
-		float z = Input.GetAxis("Vertical");
+		float x = Input.GetAxisRaw("Horizontal");
+		float z = Input.GetAxisRaw("Vertical");
 		Vector3 move = (mainCam.transform.right * x + wasdReference.transform.forward * z).normalized;
 
         // print(controller.isGrounded);
