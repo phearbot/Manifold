@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour
     NormalColorMapper mapper;
 
 
-    // Gravity Rotation Variables
-    Vector3 targetNormal;
+	// Gravity Rotation Variables
+	[SerializeField] float reticleCheckDistance = 3f;
+	Vector3 targetNormal;
     bool reticleHasColorLock = false;
     bool currentlyChangingGravity = false;
     Quaternion previousGravityRotation;
@@ -169,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckReticle()
     {
-        float reticleCheckDistance = 2f;
+        
         int mask =~ LayerMask.GetMask("Player"); // the tilda inverts the mask so the raycast will not hit the player
 		bool castHit = Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out RaycastHit hitInfo, reticleCheckDistance, mask);
 

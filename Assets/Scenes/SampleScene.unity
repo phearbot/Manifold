@@ -130,16 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: carryPoint
-      value: 
-      objectReference: {fileID: 7520259}
-    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: carryPosition
-      value: 
-      objectReference: {fileID: 7520259}
     - target: {fileID: 8619448723828511122, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -200,24 +190,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9039392279988835798, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9039392279988835798, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
---- !u!4 &7520259 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9039392279988835798, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7520258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &20441974
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132147966588137, guid: b15000ab96e2e2140afc665dca607171,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15000ab96e2e2140afc665dca607171, type: 3}
