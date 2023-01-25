@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 396602920}
   - component: {fileID: 396602918}
   - component: {fileID: 396602921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1078328417}
   - component: {fileID: 1078328416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VirtualCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970887209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GravityReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 5378973145091612588}
   - component: {fileID: 8218017240051679860}
   - component: {fileID: 99624325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5271531277465323729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WASDReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 8619448723828511135}
   - component: {fileID: 1360785291}
   - component: {fileID: 1360785292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,6 +476,7 @@ MonoBehaviour:
   gravity: -0.3
   maxGravityMagnitude: 4000
   groundedRaycastLength: 1.1
+  gravityRotationDuration: 0.3
 --- !u!33 &8619448723828511120
 MeshFilter:
   m_ObjectHideFlags: 0

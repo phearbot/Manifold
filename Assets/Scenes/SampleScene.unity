@@ -130,28 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 396602916, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078328415, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1970887208, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2460519737430164081, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3918225676615023738, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8619448723828511122, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
         type: 3}
       propertyPath: m_RootOrder
@@ -212,11 +190,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8619448723828511132, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
 --- !u!1 &197761807
@@ -248,9 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81b0de565256c14caba4efab9f083cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldRepeatSizeX: 5
-  worldRepeatSizeY: 5
-  worldRepeatSizeZ: 5
+  worldRepeatSizeX: 3
+  worldRepeatSizeY: 3
+  worldRepeatSizeZ: 3
   worldRepeatDistanceX: 200
   worldRepeatDistanceY: 200
   worldRepeatDistanceZ: 200

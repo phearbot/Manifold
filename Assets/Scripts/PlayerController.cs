@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float gravity = -9.81f;
-    [SerializeField] float maxGravityMagnitude = .5f;
+    [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
     bool isGrounded;
 
@@ -26,8 +26,15 @@ public class PlayerController : MonoBehaviour
     Image reticle;
     NormalColorMapper mapper;
 
+
+    // Gravity Rotation Variables
     Vector3 targetNormal;
-    bool reticleLock = false;
+    bool reticleHasColorLock = false;
+    bool currentlyChangingGravity = false;
+    Quaternion previousGravityRotation;
+    Quaternion nextGravityTargetRotation;
+    [SerializeField] float gravityRotationDuration = .5f;
+    float gravityRotationTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +50,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentlyChangingGravity)
+            HandleGravityRotation();
+
         HandleMovement();
         HandleOtherInput();
 	}
@@ -50,6 +60,15 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
         CheckReticle();
+	}
+
+    void HandleGravityRotation()
+    {
+        gravityRotationTimer += Time.deltaTime;
+		transform.rotation = Quaternion.Lerp(previousGravityRotation, nextGravityTargetRotation, gravityRotationTimer / gravityRotationDuration);
+
+        if (gravityRotationTimer > gravityRotationDuration)
+            currentlyChangingGravity = false;
 	}
 
 	void HandleMovement()
@@ -77,12 +96,18 @@ public class PlayerController : MonoBehaviour
 
     void HandleOtherInput()
     {
-        if (Input.GetMouseButtonDown(0) && reticleLock)
+        if (Input.GetMouseButtonDown(0) && reticleHasColorLock && !currentlyChangingGravity)
         {
             Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
 
 			print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
-            transform.rotation = rotation * transform.rotation;
+            //transform.rotation = rotation * transform.rotation;
+            previousGravityRotation = transform.rotation;
+            nextGravityTargetRotation = rotation * transform.rotation;
+
+
+            currentlyChangingGravity = true;
+            gravityRotationTimer = 0;
         }
     }
 
@@ -106,13 +131,13 @@ public class PlayerController : MonoBehaviour
         {
             reticle.color = mapper.MapNormalToColor(hitInfo.normal);
             targetNormal = hitInfo.normal;
-            reticleLock = true;
+            reticleHasColorLock = true;
             //print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
         }
 		else
         {
 			reticle.color = Color.white;
-            reticleLock = false;
+            reticleHasColorLock = false;
 		}
 
 
