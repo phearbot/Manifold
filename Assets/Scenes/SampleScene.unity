@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,40 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: xNeg.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: xPos.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: yNeg.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: yPos.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: zNeg.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1360785292, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
-      propertyPath: zPos.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: maxGravityMagnitude
-      value: 4000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
-        type: 3}
-      propertyPath: groundedRaycastLength
-      value: 1.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8619448723828511122, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
         type: 3}
       propertyPath: m_RootOrder
