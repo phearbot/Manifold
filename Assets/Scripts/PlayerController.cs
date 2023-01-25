@@ -11,7 +11,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     CharacterController controller;
-    [SerializeField] GameObject capsule;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject gravityReference;
     [SerializeField] GameObject wasdReference;
@@ -39,7 +38,12 @@ public class PlayerController : MonoBehaviour
     float gravityRotationTimer;
 
     // Interactable Variables
+    [SerializeField] Transform carryPoint;
     bool reticleHasInteractableLock = false;
+    GameObject interactableTarget;
+    Sprite canInteractSprite;
+    Sprite isInteractingSprite;
+    Cube cubeBeingCarried;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,9 @@ public class PlayerController : MonoBehaviour
         reticle = canvas.GetComponentInChildren<Image>();
         interactableHex = GameObject.Find("InteractableHex").GetComponent<Image>();
         interactableHex.enabled = false;
+        canInteractSprite = Resources.Load<Sprite>("Art/Sprites/HexagonDouble");
+        print("canInteract: " + canInteractSprite);
+        isInteractingSprite = Resources.Load<Sprite>("Art/Sprites/HexagonSingle");
         mapper = GetComponent<NormalColorMapper>();
     }
 
@@ -122,10 +129,35 @@ public class PlayerController : MonoBehaviour
         }
 
         // Logic for picking up / pushing buttons
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) 
         {
+            if (interactableTarget != null && cubeBeingCarried == null)
+            {
+				SwapInteractingSprite();
+				PickupObject();
+			}
+            else if (cubeBeingCarried != null) 
+            {
+                DropObject();
+            }
+
 
         }
+    }
+
+    void PickupObject()
+    {
+        if (interactableTarget.GetComponent<Cube>() != null)
+        {
+            cubeBeingCarried = interactableTarget.GetComponent<Cube>();
+            cubeBeingCarried.GetCarried(carryPoint);
+        }
+    }
+
+    void DropObject()
+    {
+        cubeBeingCarried.GetDropped();
+        cubeBeingCarried = null;
     }
 
     void CheckForGrounded()
@@ -157,10 +189,12 @@ public class PlayerController : MonoBehaviour
             if (hitInfo.transform.tag == "Interactable")
             {
                 reticleHasInteractableLock = true;
+                interactableTarget = hitInfo.transform.gameObject;
             }
             else
             {
                 reticleHasInteractableLock = false;
+                interactableTarget = null;
             }
 
         }
@@ -169,6 +203,7 @@ public class PlayerController : MonoBehaviour
 			reticle.color = Color.white;
             reticleHasColorLock = false;
             reticleHasInteractableLock = false;
+            interactableTarget = null;
 		}
 
         // Ideally this wouldn't be called every frame
@@ -179,5 +214,16 @@ public class PlayerController : MonoBehaviour
 	void FlipPlayer()
     {
         transform.rotation = Quaternion.Euler(new Vector3(180,0,0));
+    }
+
+
+    void SwapInteractingSprite()
+    {
+        //print(canInteractSprite);
+
+        if (interactableHex.sprite == canInteractSprite)
+            interactableHex.sprite = isInteractingSprite;
+        else
+            interactableHex.sprite = canInteractSprite;
     }
 }

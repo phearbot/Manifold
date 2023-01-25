@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CustomPhysicsBody : MonoBehaviour
 {
-    [SerializeField] bool gravityEnabled;
-    [SerializeField] bool snapToGrid = true;
+    public bool gravityEnabled;
+    public bool snapToGrid = true;
 
     // References
     Rigidbody rb;
@@ -30,7 +30,8 @@ public class CustomPhysicsBody : MonoBehaviour
 	{
         if (gravityEnabled)
         {
-			rb.AddForce(-transform.up);
+			rb.AddForce(-transform.up * 20);
+            print(rb.velocity);
 
 
             if (snapToGrid)
