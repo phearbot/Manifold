@@ -41,6 +41,8 @@ public class NormalColorMapper : MonoBehaviour
         else if (normal == Vector3.back)
             return zNeg;
         else
+            //print(normal + " didn't map to anything");
+            //print((normal == Vector3.forward));
             return Color.white;
             
      }

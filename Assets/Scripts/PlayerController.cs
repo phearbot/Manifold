@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     Canvas canvas;
     Image reticle;
+    Image interactableHex;
     NormalColorMapper mapper;
 
 
@@ -36,6 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityRotationDuration = .5f;
     float gravityRotationTimer;
 
+    // Interactable Variables
+    bool reticleHasInteractableLock = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +49,8 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
+        interactableHex = GameObject.Find("InteractableHex").GetComponent<Image>();
+        interactableHex.enabled = false;
         mapper = GetComponent<NormalColorMapper>();
     }
 
@@ -52,9 +59,12 @@ public class PlayerController : MonoBehaviour
     {
         if (currentlyChangingGravity)
             HandleGravityRotation();
+        else
+        {
+			HandleMovement();
+			HandleOtherInput();
+		}
 
-        HandleMovement();
-        HandleOtherInput();
 	}
 
 	private void FixedUpdate()
@@ -96,18 +106,25 @@ public class PlayerController : MonoBehaviour
 
     void HandleOtherInput()
     {
-        if (Input.GetMouseButtonDown(0) && reticleHasColorLock && !currentlyChangingGravity)
+        // Logic for changing gravity
+        bool receivedGravityShiftInput = (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space));
+        if (receivedGravityShiftInput && reticleHasColorLock)
         {
             Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
 
-			print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
-            //transform.rotation = rotation * transform.rotation;
+			//print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
             previousGravityRotation = transform.rotation;
             nextGravityTargetRotation = rotation * transform.rotation;
 
 
             currentlyChangingGravity = true;
             gravityRotationTimer = 0;
+        }
+
+        // Logic for picking up / pushing buttons
+        if (Input.GetMouseButtonDown(0))
+        {
+
         }
     }
 
@@ -129,18 +146,33 @@ public class PlayerController : MonoBehaviour
 
         if (castHit)
         {
+            // values for gravity shifting / color stuff
             reticle.color = mapper.MapNormalToColor(hitInfo.normal);
             targetNormal = hitInfo.normal;
             reticleHasColorLock = true;
-            //print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
+            print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
+
+
+            // logic for interactables
+            if (hitInfo.transform.tag == "Interactable")
+            {
+                reticleHasInteractableLock = true;
+            }
+            else
+            {
+                reticleHasInteractableLock = false;
+            }
+
         }
 		else
         {
 			reticle.color = Color.white;
             reticleHasColorLock = false;
+            reticleHasInteractableLock = false;
 		}
 
-
+        // Ideally this wouldn't be called every frame
+        interactableHex.enabled = reticleHasInteractableLock;
 	}
 
 	[ContextMenu("Flip Player")]
