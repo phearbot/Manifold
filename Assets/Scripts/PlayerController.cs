@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,10 +26,14 @@ public class PlayerController : MonoBehaviour
     Image reticle;
     NormalColorMapper mapper;
 
+    Vector3 targetNormal;
+    bool reticleLock = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false; 
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = false; 
         controller = GetComponent<CharacterController>();
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
@@ -39,6 +44,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        HandleOtherInput();
 	}
 
 	private void FixedUpdate()
@@ -69,27 +75,48 @@ public class PlayerController : MonoBehaviour
 
 	}
 
+    void HandleOtherInput()
+    {
+        if (Input.GetMouseButtonDown(0) && reticleLock)
+        {
+            Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
+
+			print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
+            transform.rotation = rotation * transform.rotation;
+        }
+    }
+
     void CheckForGrounded()
     {
         // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
 		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
-        print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);
+        //print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);
 	}
 
     void CheckReticle()
     {
         float reticleCheckDistance = 2f;
-        bool castHit = Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out RaycastHit hitInfo, reticleCheckDistance);
+        int mask =~ LayerMask.GetMask("Player"); // the tilda inverts the mask so the raycast will not hit the player
+		bool castHit = Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out RaycastHit hitInfo, reticleCheckDistance, mask);
+
+
+        
 
         if (castHit)
         {
             reticle.color = mapper.MapNormalToColor(hitInfo.normal);
+            targetNormal = hitInfo.normal;
+            reticleLock = true;
+            //print(hitInfo.normal + " : " + hitInfo.transform.gameObject);
         }
 		else
-            reticle.color = Color.white;
-        
+        {
+			reticle.color = Color.white;
+            reticleLock = false;
+		}
 
-    }
+
+	}
 
 	[ContextMenu("Flip Player")]
 	void FlipPlayer()
