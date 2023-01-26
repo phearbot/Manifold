@@ -155,6 +155,10 @@ public class PlayerController : MonoBehaviour
 		currentlyChangingGravity = true;
 		gravityRotationTimer = 0;
 
+        // Update the material for shader
+        Material mat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
+        print(mat);
+		mat.SetColor("_Color", mapper.MapNormalToColor(targetNormal));
 	}
 
     void LockAndUnlockCubes()
