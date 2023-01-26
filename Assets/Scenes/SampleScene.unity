@@ -384,9 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81b0de565256c14caba4efab9f083cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldRepeatSizeX: 1
-  worldRepeatSizeY: 1
-  worldRepeatSizeZ: 1
+  worldRepeatSizeX: 5
+  worldRepeatSizeY: 5
+  worldRepeatSizeZ: 5
   worldRepeatDistanceX: 300
   worldRepeatDistanceY: 300
   worldRepeatDistanceZ: 300
