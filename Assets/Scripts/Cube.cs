@@ -66,4 +66,14 @@ public class Cube : MonoBehaviour
 
         }
 	}
+
+    public void LockCube()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void UnlockCube()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+	}
 }

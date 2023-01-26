@@ -86,7 +86,10 @@ public class PlayerController : MonoBehaviour
 		transform.rotation = Quaternion.Lerp(previousGravityRotation, nextGravityTargetRotation, gravityRotationTimer / gravityRotationDuration);
 
         if (gravityRotationTimer > gravityRotationDuration)
-            currentlyChangingGravity = false;
+        {
+			currentlyChangingGravity = false;
+			LockAndUnlockCubes();
+		}
 	}
 
 	void HandleMovement()
@@ -119,15 +122,7 @@ public class PlayerController : MonoBehaviour
         bool receivedGravityShiftInput = (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space));
         if (receivedGravityShiftInput && reticleHasColorLock && cubeBeingCarried == null)
         {
-            Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
-
-			//print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
-            previousGravityRotation = transform.rotation;
-            nextGravityTargetRotation = rotation * transform.rotation;
-
-
-            currentlyChangingGravity = true;
-            gravityRotationTimer = 0;
+            ChangeGravityField();
         }
 
         // Logic for picking up / pushing buttons
@@ -144,6 +139,31 @@ public class PlayerController : MonoBehaviour
             }
 
 
+        }
+    }
+
+    void ChangeGravityField()
+    {
+		Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
+
+		//print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
+		previousGravityRotation = transform.rotation;
+		nextGravityTargetRotation = rotation * transform.rotation;
+
+
+		currentlyChangingGravity = true;
+		gravityRotationTimer = 0;
+
+	}
+
+    void LockAndUnlockCubes()
+    {
+        foreach (Cube cube in FindObjectsOfType<Cube>())
+        {
+            if (cube.transform.up == transform.up)
+                cube.UnlockCube();
+            else
+                cube.LockCube();
         }
     }
 
