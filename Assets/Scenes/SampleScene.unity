@@ -351,7 +351,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 87934f57f83a11c4bb6f2b90cb670826, type: 2}
+      objectReference: {fileID: -3421122113607031155, guid: a6999adb41ed6a34eb17aa67d64cbdd9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15000ab96e2e2140afc665dca607171, type: 3}
 --- !u!1 &197761807
@@ -392,7 +393,7 @@ MonoBehaviour:
   worldOffsetX: 0
   worldOffsetY: 0
   worldOffsetZ: 0
-  levelPrefab: {fileID: 5508755924709423680, guid: 4966b6786da67b740aa58f07511453a0,
+  levelPrefab: {fileID: 5508755924709423680, guid: e2c0a9fe4c429464da34b3d957ea20b1,
     type: 3}
   player: {fileID: 1360785286}
 --- !u!4 &197761809

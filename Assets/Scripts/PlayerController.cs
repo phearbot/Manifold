@@ -61,7 +61,10 @@ public class PlayerController : MonoBehaviour
         isInteractingSprite = Resources.Load<Sprite>("Art/Sprites/HexagonSingle");
         mapper = GetComponent<NormalColorMapper>();
         LockAndUnlockCubes();
-    }
+
+		Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
+		normalColorMat.SetVector("_TargetNormal", Vector3.up);
+	}
 
     // Update is called once per frame
     void Update()
@@ -157,6 +160,7 @@ public class PlayerController : MonoBehaviour
 
         // Update the material for shader
         Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
+        normalColorMat.SetVector("_TargetNormal", targetNormal);
 	}
 
     void LockAndUnlockCubes()
