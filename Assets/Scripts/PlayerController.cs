@@ -95,10 +95,8 @@ public class PlayerController : MonoBehaviour
 
 		wasdReference.transform.localRotation = Quaternion.Euler(0, mainCam.transform.localEulerAngles.y, 0);
 		float x = Input.GetAxisRaw("Horizontal");
-		float z = Input.GetAxisRaw("Vertical");
+		float z = Input.GetAxisRaw("Vertical") * 2; // this makes the forward / back movement relatively faster, not loving it but it's ok
 		Vector3 move = (mainCam.transform.right * x + wasdReference.transform.forward * z).normalized;
-
-        // print(controller.isGrounded);
 
         // Only apply gravity is player is not grounded
 		if (isGrounded)
@@ -135,9 +133,9 @@ public class PlayerController : MonoBehaviour
         // Logic for picking up / pushing buttons
         if (Input.GetMouseButtonDown(0)) 
         {
-            if (interactableTarget != null && cubeBeingCarried == null)
+            // the third scenario below may be replaced by a bool on the object at some point
+            if (interactableTarget != null && cubeBeingCarried == null && interactableTarget.transform.up == transform.up)
             {
-				SwapInteractingSprite(true);
 				PickupObject();
 			}
             else if (cubeBeingCarried != null) 
@@ -151,11 +149,9 @@ public class PlayerController : MonoBehaviour
 
     void PickupObject()
     {
-        if (interactableTarget.GetComponent<Cube>() != null)
-        {
-            cubeBeingCarried = interactableTarget.GetComponent<Cube>();
+			SwapInteractingSprite(true);
+			cubeBeingCarried = interactableTarget.GetComponent<Cube>();
             cubeBeingCarried.GetCarried(carryPoint);
-        }
     }
 
     public void DropObject()

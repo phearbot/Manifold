@@ -1062,7 +1062,7 @@ PrefabInstance:
     - target: {fileID: 2726880190453866306, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2726880190453866306, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
@@ -1119,6 +1119,21 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 3128
       objectReference: {fileID: 0}
+    - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
+        type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2726880190453866310, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_Mesh
@@ -1151,7 +1166,7 @@ PrefabInstance:
     - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
         type: 3}
