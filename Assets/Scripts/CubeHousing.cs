@@ -5,7 +5,8 @@ using UnityEngine;
 public class CubeHousing : MonoBehaviour
 {
 	[SerializeField] Cube activationCube;
-    [SerializeField] float cubeGrapLerpTime = 1f;
+    [SerializeField] Door[] doors;
+
     bool cubeAtFinalPosition = false;
 
     // Start is called before the first frame update
@@ -22,16 +23,13 @@ public class CubeHousing : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        // This doesn't need to run forever CLEANUP (lerp with a timer probs)
         if (activationCube != null &! cubeAtFinalPosition)
         {
 			Vector3 direction = transform.position - activationCube.transform.position;
 			activationCube.rb.velocity = direction * 2.5f;
 
-
+            // Lock the cube in place when it's close enough
             float val = Vector3.SqrMagnitude(transform.position - activationCube.rb.position);
-            print(val);
-
             if (val < .00001f)
             {
                 cubeAtFinalPosition = true;
@@ -46,11 +44,21 @@ public class CubeHousing : MonoBehaviour
     {
         activationCube = _activationCube;
         cubeAtFinalPosition = false;
+
+        foreach (Door door in doors)
+        {
+            door.OpenDoor();
+        }
     }
 
     public void Deactivate()
     {
         activationCube = null;
         cubeAtFinalPosition = false;
-    }
+
+		foreach (Door door in doors)
+		{
+			door.CloseDoor();
+		}
+	}
 }

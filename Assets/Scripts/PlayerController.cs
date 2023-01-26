@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     Vector3 playerGravityVelocity;
 
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float sprintModifier = 1.2f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
@@ -106,8 +107,11 @@ public class PlayerController : MonoBehaviour
 			playerGravityVelocity += transform.up * gravity * Time.deltaTime;
 
 
+
+        float _sprint = Input.GetKey(KeyCode.LeftShift) ? sprintModifier : 1;
+
 		// Apply movement on local X/Z axes
-		controller.Move(move * 5f * moveSpeed * Time.deltaTime + playerGravityVelocity);
+		controller.Move(move * 5f * moveSpeed * _sprint * Time.deltaTime + playerGravityVelocity);
 
 	}
 

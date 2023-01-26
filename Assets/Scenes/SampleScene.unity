@@ -268,6 +268,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20441974}
   m_CullTransparentMesh: 1
+--- !u!114 &60207203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8298921245698428438, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8298921245741334133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9bf0a4d5eae5a9489e8c1f10e1f99d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197761807
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,26 +590,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500087574}
   m_CullTransparentMesh: 1
---- !u!1 &794504034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2225111491578884477, guid: 7986199f365028f408d8bad85ff68cf6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8517106730879479429}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &794504037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794504034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84300aeb97cde84488f2ccf9dfa8c272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activationCube: {fileID: 0}
-  cubeGrapLerpTime: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +883,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15000ab96e2e2140afc665dca607171, type: 3}
+--- !u!1001 &8298921245741334133
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428433, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298921245698428439, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6,
+        type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ae50f9d6b36ada4a9a7e03dcc5356d6, type: 3}
 --- !u!1001 &8517106730879479429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,10 +959,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 794504036, guid: 7986199f365028f408d8bad85ff68cf6, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 794504037, guid: 7986199f365028f408d8bad85ff68cf6, type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 60207203}
     - target: {fileID: 1561341353617697735, guid: 7986199f365028f408d8bad85ff68cf6,
         type: 3}
       propertyPath: m_RootOrder
@@ -962,25 +1023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube Housing Prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 2225111491578884477, guid: 7986199f365028f408d8bad85ff68cf6,
+    - target: {fileID: 5082839948668255134, guid: 7986199f365028f408d8bad85ff68cf6,
         type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2225111491578884477, guid: 7986199f365028f408d8bad85ff68cf6,
-        type: 3}
-      propertyPath: m_TagString
-      value: Cube Housing
-      objectReference: {fileID: 0}
-    - target: {fileID: 3968207458841558794, guid: 7986199f365028f408d8bad85ff68cf6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103684032761380092, guid: 7986199f365028f408d8bad85ff68cf6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 60207203}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7986199f365028f408d8bad85ff68cf6, type: 3}

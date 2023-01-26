@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1561341353617697735}
   - component: {fileID: 5082839948668255134}
   - component: {fileID: 794504036}
-  m_Layer: 0
+  - component: {fileID: 794504037}
+  m_Layer: 6
   m_Name: Cube Housing Prefab
-  m_TagString: Untagged
+  m_TagString: Cube Housing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84300aeb97cde84488f2ccf9dfa8c272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activationCube: {fileID: 0}
+  doors:
+  - {fileID: 0}
 --- !u!65 &794504036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,11 +59,26 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2225111491578884477}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80, y: 80, z: 80}
+  m_Size: {x: 40, y: 40, z: 40}
   m_Center: {x: 0, y: 20, z: 0}
+--- !u!114 &794504037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225111491578884477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84300aeb97cde84488f2ccf9dfa8c272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationCube: {fileID: 0}
+  doors:
+  - {fileID: 0}
 --- !u!1 &3968207458841558794
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +90,7 @@ GameObject:
   - component: {fileID: 4298757080280159491}
   - component: {fileID: 323960768402483399}
   - component: {fileID: 2978044990280765083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Manifold_Garden_Cube_Housing_Base_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +173,7 @@ GameObject:
   - component: {fileID: 1005995930297918745}
   - component: {fileID: 8615459507722264616}
   - component: {fileID: 6687540172879288200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Manifold_Garden_Cube_Housing_Base_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

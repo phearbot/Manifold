@@ -503,7 +503,8 @@ MonoBehaviour:
   mainCam: {fileID: 8215194721045919593}
   gravityReference: {fileID: 1970887208}
   wasdReference: {fileID: 3918225676615023738}
-  moveSpeed: 3
+  moveSpeed: 2
+  sprintModifier: 1.2
   gravity: -0.1
   maxGravityMagnitude: 4000
   groundedRaycastLength: 1.1
