@@ -347,6 +347,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8231476817735920852, guid: b15000ab96e2e2140afc665dca607171,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87934f57f83a11c4bb6f2b90cb670826, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15000ab96e2e2140afc665dca607171, type: 3}
 --- !u!1 &197761807
@@ -1196,18 +1201,23 @@ PrefabInstance:
     - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2726880190453866307, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2726880190453866309, guid: 58a6313437eb33e4b839b050d6ad73c9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8cf2a9feb0861741be01fd7ac6fc4ec, type: 2}
     - target: {fileID: 2726880190453866310, guid: 58a6313437eb33e4b839b050d6ad73c9,
         type: 3}
       propertyPath: m_Mesh

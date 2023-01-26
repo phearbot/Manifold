@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
     {
 		Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
 
-		//print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
+		print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
 		previousGravityRotation = transform.rotation;
 		nextGravityTargetRotation = rotation * transform.rotation;
 
@@ -156,9 +156,7 @@ public class PlayerController : MonoBehaviour
 		gravityRotationTimer = 0;
 
         // Update the material for shader
-        Material mat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
-        print(mat);
-		mat.SetColor("_Color", mapper.MapNormalToColor(targetNormal));
+        Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
 	}
 
     void LockAndUnlockCubes()
