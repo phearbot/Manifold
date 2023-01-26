@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         canInteractSprite = Resources.Load<Sprite>("Art/Sprites/HexagonDouble");
         isInteractingSprite = Resources.Load<Sprite>("Art/Sprites/HexagonSingle");
         mapper = GetComponent<NormalColorMapper>();
+        LockAndUnlockCubes();
     }
 
     // Update is called once per frame
