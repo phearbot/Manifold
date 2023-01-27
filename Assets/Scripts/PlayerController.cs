@@ -10,20 +10,24 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Objects From the Scene")]
     CharacterController controller;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject gravityReference;
     [SerializeField] GameObject wasdReference;
-    Vector3 playerGravityVelocity;
+	Canvas canvas;
 
-    [SerializeField] float moveSpeed = 1f;
+	[Header("Movement Variables")]
+    bool isMoving; // sound hoook
+	Vector3 playerGravityVelocity;
+	[SerializeField] float moveSpeed = 1f;
     [SerializeField] float sprintModifier = 1.2f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
     bool isGrounded;
 
-    Canvas canvas;
+
     Image reticle;
     Image interactableHex;
     NormalColorMapper mapper;

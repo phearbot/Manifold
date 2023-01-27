@@ -45,4 +45,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMFadeTimer: 2
-  sounds: []
+  sounds:
+  - name: BGM
+    clip: {fileID: 8300000, guid: 89d4a5f4958a1c241a15453f116a927e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep Step
+    clip: {fileID: 8300000, guid: 2a9e9c99071e2694aa935a718f22a8a4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep Walk
+    clip: {fileID: 8300000, guid: 46063379905beda42a2aa66b35c3577f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footstep Run
+    clip: {fileID: 8300000, guid: 63736eeebf76cf744b7a8ecdc6954fa2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
