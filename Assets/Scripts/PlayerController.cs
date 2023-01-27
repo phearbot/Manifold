@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         transform.localPosition = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
-        print(spawnPoint);
 	}
 
     // Update is called once per frame
@@ -179,7 +178,7 @@ public class PlayerController : MonoBehaviour
     {
 		Quaternion rotation = Quaternion.FromToRotation(transform.up, targetNormal);
 
-		print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
+		//print("transform.up: " + transform.up + "; targetNormal: " + targetNormal + "; rotation: " + rotation.eulerAngles);
 		previousGravityRotation = transform.rotation;
 		nextGravityTargetRotation = rotation * transform.rotation;
 
