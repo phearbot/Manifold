@@ -75,43 +75,43 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav1
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: 9a316cc7347305c46ab78742d51de06c, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav2
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: 1a7e6abda771a2e48901ba96342d55ae, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav3
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: 455ac391c72433c409fb1f5ab7d74208, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav4
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: d06c104bf3bb7a74e8636604c9f94d63, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav5
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: a3338313f49bcd84995959a0c754e8c2, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav6
-    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: f0b5d07569c771649abb20ef654b1ae6, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
