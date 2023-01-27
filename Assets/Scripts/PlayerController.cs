@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false; 
         controller = GetComponent<CharacterController>();
-        am = FindObjectOfType<AudioManager>();
+
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
         interactableHex = GameObject.Find("InteractableHex").GetComponent<Image>();
@@ -72,7 +72,9 @@ public class PlayerController : MonoBehaviour
 
 		Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
 		normalColorMat.SetVector("_TargetNormal", Vector3.up);
-        am.PlayNoRestartIfPlaying("BGM");
+
+		am = FindObjectOfType<AudioManager>();
+		am.PlayNoRestartIfPlaying("BGM");
 	}
 
     // Update is called once per frame

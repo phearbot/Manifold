@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class AudioManager : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class AudioManager : MonoBehaviour
             instance = this;
         else
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject); // This had to be done because the Player script was finding the destroyed one and throwing a null reference
+            //Destroy(gameObject);
             return;
         }
 
