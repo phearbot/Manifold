@@ -55,21 +55,63 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Footstep Step
     clip: {fileID: 8300000, guid: 2a9e9c99071e2694aa935a718f22a8a4, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Footstep Walk
     clip: {fileID: 8300000, guid: 46063379905beda42a2aa66b35c3577f, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Footstep Run
     clip: {fileID: 8300000, guid: 63736eeebf76cf744b7a8ecdc6954fa2, type: 3}
-    volume: 1
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav1
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav2
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav3
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav4
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav5
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Grav6
+    clip: {fileID: 8300000, guid: aad89a1fcfb703d41beaf69e359d9f88, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0

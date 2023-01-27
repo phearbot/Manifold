@@ -509,7 +509,7 @@ MonoBehaviour:
   maxGravityMagnitude: 4000
   groundedRaycastLength: 1.1
   reticleCheckDistance: 3.2
-  gravityRotationDuration: 0.3
+  gravityRotationDuration: 0.7
   carryPoint: {fileID: 9039392279988835798}
 --- !u!33 &8619448723828511120
 MeshFilter:

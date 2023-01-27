@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.UI;
+using System;
 
 
 
@@ -15,10 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject gravityReference;
     [SerializeField] GameObject wasdReference;
+    AudioManager am;
 	Canvas canvas;
 
 	[Header("Movement Variables")]
-    bool isMoving; // sound hoook
+    
 	Vector3 playerGravityVelocity;
 	[SerializeField] float moveSpeed = 1f;
     [SerializeField] float sprintModifier = 1.2f;
@@ -26,9 +28,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
     bool isGrounded;
+	bool isMoving; // sound hook
 
 
-    Image reticle;
+	Image reticle;
     Image interactableHex;
     NormalColorMapper mapper;
 
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false; 
         controller = GetComponent<CharacterController>();
+        am = FindObjectOfType<AudioManager>();
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
         interactableHex = GameObject.Find("InteractableHex").GetComponent<Image>();
@@ -68,13 +72,17 @@ public class PlayerController : MonoBehaviour
 
 		Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
 		normalColorMat.SetVector("_TargetNormal", Vector3.up);
+        am.PlayNoRestartIfPlaying("BGM");
 	}
 
     // Update is called once per frame
     void Update()
     {
         if (currentlyChangingGravity)
-            HandleGravityRotation();
+        {
+            StopWalkSound();
+			HandleGravityRotation();
+		}
         else
         {
 			HandleMovement();
@@ -109,6 +117,12 @@ public class PlayerController : MonoBehaviour
 		float z = Input.GetAxisRaw("Vertical") * 2; // this makes the forward / back movement relatively faster, not loving it but it's ok
 		Vector3 move = (mainCam.transform.right * x + wasdReference.transform.forward * z).normalized;
 
+        // This shouldn't need to happen every frame
+        if (move.sqrMagnitude > 0 && isGrounded)
+            PlayWalkSound();
+        else
+            StopWalkSound();
+
         // Only apply gravity is player is not grounded
 		if (isGrounded)
 			playerGravityVelocity = transform.up * gravity * Time.deltaTime;
@@ -128,7 +142,7 @@ public class PlayerController : MonoBehaviour
     {
         // Logic for changing gravity
         bool receivedGravityShiftInput = (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space));
-        if (receivedGravityShiftInput && reticleHasColorLock && cubeBeingCarried == null)
+        if (receivedGravityShiftInput && reticleHasColorLock && cubeBeingCarried == null && transform.up != targetNormal)
         {
             ChangeGravityField();
         }
@@ -165,6 +179,8 @@ public class PlayerController : MonoBehaviour
         // Update the material for shader
         Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
         normalColorMat.SetVector("_TargetNormal", targetNormal);
+
+        am.Play(mapper.MapNormalToSFX(targetNormal));
 	}
 
     void LockAndUnlockCubes()
@@ -253,5 +269,17 @@ public class PlayerController : MonoBehaviour
     void SwapInteractingSprite(bool interacting)
     {
         interactableHex.sprite = interacting ? isInteractingSprite : canInteractSprite;
+    }
+
+    void PlayWalkSound()
+    {
+        am.PlayNoRestartIfPlaying("Footstep Run");
+    }
+
+    void StopWalkSound()
+    {
+        am.Stop("Footstep Step");
+        am.Stop("Footstep Walk");
+        am.Stop("Footstep Run");
     }
 }

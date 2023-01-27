@@ -46,4 +46,23 @@ public class NormalColorMapper : MonoBehaviour
             return Color.white;
             
      }
+
+    public string MapNormalToSFX(Vector3 normal)
+    {
+        if (normal == Vector3.right)
+            return "Grav1";
+        else if (normal == Vector3.up)
+            return "Grav2";
+        else if (normal == Vector3.forward)
+            return "Grav3";
+        else if (normal == Vector3.left)
+            return "Grav4";
+        else if (normal == Vector3.down)
+            return "Grav5";
+        else if (normal == Vector3.back)
+            return "Grav6";
+        else
+            return "Grav1";
+
+	}
 }
