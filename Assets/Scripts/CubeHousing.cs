@@ -53,13 +53,14 @@ public class CubeHousing : MonoBehaviour
             door.OpenDoor();
         }
 
-		am.Play("CubePlace1");
+		am.Play("CubePlace");
 		humStart.Play();
         humLoop.PlayDelayed(humStart.clip.length);
     }
 
     public void Deactivate()
     {
+        activationCube.cubeHousing = null;
         activationCube = null;
         cubeAtFinalPosition = false;
 
@@ -68,6 +69,7 @@ public class CubeHousing : MonoBehaviour
 			door.CloseDoor();
 		}
 
+		am.Play("CubeRemove");
 		humStart.Stop();
         humLoop.Stop();
 	}

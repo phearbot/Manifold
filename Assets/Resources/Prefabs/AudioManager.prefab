@@ -165,8 +165,15 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
-  - name: CubePlace1
+  - name: CubePlace
     clip: {fileID: 8300000, guid: 1a7e6abda771a2e48901ba96342d55ae, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CubeRemove
+    clip: {fileID: 8300000, guid: 9a316cc7347305c46ab78742d51de06c, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0

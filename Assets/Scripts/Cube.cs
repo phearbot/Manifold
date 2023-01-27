@@ -8,7 +8,7 @@ public class Cube : MonoBehaviour
     CustomPhysicsBody cpb;
     public bool isBeingCarried = false;
     public Rigidbody rb;
-    CubeHousing cubeHousing;
+    public CubeHousing cubeHousing;
 
     // Start is called before the first frame update
     void Start()
