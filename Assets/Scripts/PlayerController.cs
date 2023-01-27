@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject wasdReference;
     AudioManager am;
 	Canvas canvas;
+    Transform spawnPoint;
 
 	[Header("Movement Variables")]
     
@@ -75,8 +76,14 @@ public class PlayerController : MonoBehaviour
 		Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
 		normalColorMat.SetVector("_TargetNormal", Vector3.up);
 
+
 		am = FindObjectOfType<AudioManager>();
-		// am.PlayNoRestartIfPlaying("BGM");
+        // am.PlayNoRestartIfPlaying("BGM");
+
+        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+        transform.localPosition = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+        print(spawnPoint);
 	}
 
     // Update is called once per frame
@@ -230,7 +237,6 @@ public class PlayerController : MonoBehaviour
         else
             fallTimer += Time.deltaTime;
 
-        print(fallTimer);
         if (fallTimer > fallTimeSoundActivation)
             am.PlayNoRestartIfPlaying("Wind");
         //print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);

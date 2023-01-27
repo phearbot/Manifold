@@ -16,6 +16,7 @@ public class WorldManager : MonoBehaviour
     public float worldOffsetZ = 0;
 
     public GameObject levelPrefab;
+    public GameObject levelItemsPrefab;
     public GameObject player;
 
     Cube[] cubes;
@@ -49,6 +50,8 @@ public class WorldManager : MonoBehaviour
 
 			}
 		}
+
+        Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
 
     }
 
