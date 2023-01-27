@@ -745,7 +745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "MANIFOLD GARD\u018EN"
+  m_text: "<size=20>A STUDY OF</size>\nMANIFOLD GARD\u018EN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c7b31700dd18bb845859c09b5dc6b198, type: 2}
   m_sharedMaterial: {fileID: -8008060770613158150, guid: c7b31700dd18bb845859c09b5dc6b198,
