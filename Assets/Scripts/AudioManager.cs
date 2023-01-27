@@ -64,6 +64,30 @@ public class AudioManager : MonoBehaviour
 
 	}
 
+    /// <summary>
+    /// Name clips in the audio manager [name]Start and [name]Loop. Make sure the loop box is ticked on the loop.
+    /// </summary>
+    /// <param name="name"></param>
+    public void PlayLoop(string name)
+    {
+		Sound s = Array.Find(sounds, sound => sound.name == name + "Start");
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + "Start not found!");
+			return;
+		}
+
+		Sound sLoop = Array.Find(sounds, sound => sound.name == name + "Loop");
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + "Loop not found!");
+			return;
+		}
+
+        s.source.Play();
+        sLoop.source.PlayDelayed(s.clip.length);
+	}
+
 	public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

@@ -198,13 +198,15 @@ public class PlayerController : MonoBehaviour
 
     void PickupObject()
     {
-			SwapInteractingSprite(true);
-			cubeBeingCarried = interactableTarget.GetComponent<Cube>();
-            cubeBeingCarried.GetCarried(carryPoint);
+        am.Play("CubePickup");
+		SwapInteractingSprite(true);
+		cubeBeingCarried = interactableTarget.GetComponent<Cube>();
+        cubeBeingCarried.GetCarried(carryPoint);
     }
 
     public void DropObject()
     {
+        am.Play("CubeDrop");
 		SwapInteractingSprite(false);
 		cubeBeingCarried.GetDropped();
         cubeBeingCarried = null;

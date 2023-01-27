@@ -8,11 +8,14 @@ public class CubeHousing : MonoBehaviour
     [SerializeField] Door[] doors;
 
     bool cubeAtFinalPosition = false;
+    [SerializeField] AudioSource humStart;
+	[SerializeField] AudioSource humLoop;
+    AudioManager am;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        am = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,10 @@ public class CubeHousing : MonoBehaviour
         {
             door.OpenDoor();
         }
+
+		am.Play("CubePlace1");
+		humStart.Play();
+        humLoop.PlayDelayed(humStart.clip.length);
     }
 
     public void Deactivate()
@@ -60,5 +67,8 @@ public class CubeHousing : MonoBehaviour
 		{
 			door.CloseDoor();
 		}
+
+		humStart.Stop();
+        humLoop.Stop();
 	}
 }

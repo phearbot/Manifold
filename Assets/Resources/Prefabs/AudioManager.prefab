@@ -74,44 +74,100 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
+  - name: PlayerThud
+    clip: {fileID: 8300000, guid: 50bc5f215092bf741af41f002e2fbb49, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   - name: Grav1
     clip: {fileID: 8300000, guid: 9a316cc7347305c46ab78742d51de06c, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 0.99
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav2
     clip: {fileID: 8300000, guid: 1a7e6abda771a2e48901ba96342d55ae, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 0.98
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav3
     clip: {fileID: 8300000, guid: 455ac391c72433c409fb1f5ab7d74208, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.01
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav4
     clip: {fileID: 8300000, guid: d06c104bf3bb7a74e8636604c9f94d63, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.02
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav5
     clip: {fileID: 8300000, guid: a3338313f49bcd84995959a0c754e8c2, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 1.03
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Grav6
     clip: {fileID: 8300000, guid: f0b5d07569c771649abb20ef654b1ae6, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CubePickup
+    clip: {fileID: 8300000, guid: a846ce05edbf2a94c954ce8065a906a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CubeDrop
+    clip: {fileID: 8300000, guid: c65f6a7ca940bd8479bf834b077ee44f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: UIClick1
+    clip: {fileID: 8300000, guid: 156211cbaf172874aa5360257314d649, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: UIClick2
+    clip: {fileID: 8300000, guid: bb4a3772b6473f64db233e3bd2a1179e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HumStart
+    clip: {fileID: 8300000, guid: 525928e9b40fea44db8526eaba26626a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HumLoop
+    clip: {fileID: 8300000, guid: 6dfeff95c74e26a45a53aa13fccba048, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CubePlace1
+    clip: {fileID: 8300000, guid: 1a7e6abda771a2e48901ba96342d55ae, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     playOnAwake: 0
