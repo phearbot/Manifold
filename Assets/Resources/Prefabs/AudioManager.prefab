@@ -75,7 +75,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: PlayerThud
-    clip: {fileID: 8300000, guid: 50bc5f215092bf741af41f002e2fbb49, type: 3}
+    clip: {fileID: 8300000, guid: fab22127989fe434ea9017583d4da79b, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -125,14 +125,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CubePickup
     clip: {fileID: 8300000, guid: a846ce05edbf2a94c954ce8065a906a2, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: CubeDrop
     clip: {fileID: 8300000, guid: c65f6a7ca940bd8479bf834b077ee44f, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -151,20 +151,6 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: HumStart
-    clip: {fileID: 8300000, guid: 525928e9b40fea44db8526eaba26626a, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: HumLoop
-    clip: {fileID: 8300000, guid: 6dfeff95c74e26a45a53aa13fccba048, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    playOnAwake: 0
-    source: {fileID: 0}
   - name: CubePlace
     clip: {fileID: 8300000, guid: 1a7e6abda771a2e48901ba96342d55ae, type: 3}
     volume: 0.5
@@ -174,6 +160,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: CubeRemove
     clip: {fileID: 8300000, guid: 9a316cc7347305c46ab78742d51de06c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: 533358f52fa9e89479e58e68d99e9a0f, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0

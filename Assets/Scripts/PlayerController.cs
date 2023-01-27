@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundedRaycastLength;
     bool isGrounded;
 	bool isMoving; // sound hook
+    float fallTimer;
+    [SerializeField] float fallTimeSoundActivation;
 
 
 	Image reticle;
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour
 		normalColorMat.SetVector("_TargetNormal", Vector3.up);
 
 		am = FindObjectOfType<AudioManager>();
-		am.PlayNoRestartIfPlaying("BGM");
+		// am.PlayNoRestartIfPlaying("BGM");
 	}
 
     // Update is called once per frame
@@ -216,6 +218,21 @@ public class PlayerController : MonoBehaviour
     {
         // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
 		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
+
+        if (isGrounded)
+        {
+            if (fallTimer > 0)
+                am.Play("PlayerThud");
+
+			fallTimer = 0;
+            am.Stop("Wind");
+		}
+        else
+            fallTimer += Time.deltaTime;
+
+        print(fallTimer);
+        if (fallTimer > fallTimeSoundActivation)
+            am.PlayNoRestartIfPlaying("Wind");
         //print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);
 	}
 

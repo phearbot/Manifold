@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] Animator[] anims; 
+    Animator[] anims;
+    [SerializeField] AudioSource doorOpen;
+	[SerializeField] AudioSource doorClose;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class Door : MonoBehaviour
         foreach (Animator anim in anims)
         {
             anim.SetBool("isOpen", true);
+            doorOpen.Play();
         }
     }
 
@@ -31,6 +34,7 @@ public class Door : MonoBehaviour
 		foreach (Animator anim in anims)
 		{
 			anim.SetBool("isOpen", false);
+            doorClose.PlayDelayed(.1f); // Delaying this because of the specific clip, may want to remove if different.
 		}
 	}
 }
