@@ -35,10 +35,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MaxDist: 1300
+    - _Float: 1
+    - _MaxDist: 1420
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _minDist: 1100
+    - _minDist: 1400
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &5402455546800983051

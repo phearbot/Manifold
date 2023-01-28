@@ -883,6 +883,7 @@ MonoBehaviour:
   worldOffsetZ: 0
   levelPrefab: {fileID: 9013696502221772083, guid: 708b96d2600525145b764d4fefea19fa,
     type: 3}
+  levelItemsPrefab: {fileID: 0}
   player: {fileID: 1837595152}
 --- !u!4 &1160025238
 Transform:

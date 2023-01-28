@@ -51,7 +51,8 @@ public class WorldManager : MonoBehaviour
 			}
 		}
 
-        Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
+        if (levelItemsPrefab != null)
+            Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
 
     }
 
