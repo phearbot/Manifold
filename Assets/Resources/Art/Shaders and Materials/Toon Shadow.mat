@@ -20,9 +20,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon
+  m_Name: Toon Shadow
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
+  - DR_OUTLINE_ON
   - _CELPRIMARYMODE_SINGLE
   - _TEXTUREBLENDINGMODE_MULTIPLY
   m_InvalidKeywords:
@@ -32,8 +33,7 @@ Material:
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - Outline
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -144,7 +144,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutlineDepthOffset: 0
-    - _OutlineEnabled: 0
+    - _OutlineEnabled: 1
     - _OutlineScale: 1
     - _OutlineWidth: 0.58
     - _OverrideLightmapDir: 0
