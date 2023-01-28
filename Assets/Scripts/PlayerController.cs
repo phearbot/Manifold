@@ -48,9 +48,10 @@ public class PlayerController : MonoBehaviour
     Quaternion nextGravityTargetRotation;
     [SerializeField] float gravityRotationDuration = .5f;
     float gravityRotationTimer;
+    Material normalColorMat;
 
-    // Interactable Variables
-    [SerializeField] Transform carryPoint;
+	// Interactable Variables
+	[SerializeField] Transform carryPoint;
     bool reticleHasInteractableLock = false;
     GameObject interactableTarget;
     Sprite canInteractSprite;
@@ -73,7 +74,8 @@ public class PlayerController : MonoBehaviour
         mapper = GetComponent<NormalColorMapper>();
         LockAndUnlockCubes();
 
-		Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
+        normalColorMat = Resources.Load("Art/Shaders and Materials/Color By Normal") as Material;
+		mapper.MapMaterialColors(normalColorMat);
 		normalColorMat.SetVector("_TargetNormal", Vector3.up);
 
 
@@ -187,7 +189,7 @@ public class PlayerController : MonoBehaviour
 		gravityRotationTimer = 0;
 
         // Update the material for shader
-        Material normalColorMat = Resources.Load("Art/Shaders and Materials/Normal Vector Material") as Material;
+        // Material normalColorMat = Resources.Load("Art/Shaders and Materials/Color By Normal") as Material;
         normalColorMat.SetVector("_TargetNormal", targetNormal);
 
         am.Play(mapper.MapNormalToSFX(targetNormal));

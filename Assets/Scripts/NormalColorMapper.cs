@@ -12,8 +12,6 @@ public class NormalColorMapper : MonoBehaviour
     public Color zNeg;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -64,5 +62,17 @@ public class NormalColorMapper : MonoBehaviour
         else
             return "Grav1";
 
+	}
+
+    public void MapMaterialColors(Material mat)
+    {
+        mat.SetColor("_xPosColor", xPos);
+        mat.SetColor("_xNegColor", xNeg);
+		mat.SetColor("_yPosColor", yPos);
+		mat.SetColor("_yNegColor", yNeg); 
+        mat.SetColor("_zPosColor", zPos);
+		mat.SetColor("_zNegColor", zNeg);
+
+        print("colors should be mapped");
 	}
 }
