@@ -165,7 +165,10 @@ public class PlayerController : MonoBehaviour
             // the third scenario below may be replaced by a bool on the object at some point
             if (interactableTarget != null && cubeBeingCarried == null && interactableTarget.transform.up == transform.up)
             {
-				PickupObject();
+                if (interactableTarget.GetComponent<Cube>() != null)
+                    PickupObject();
+                else if (interactableTarget.transform.parent.GetComponent<SwitchButton>() != null) // hacky, clean this up and in the pressbutton function
+                    PressButton();
 			}
             else if (cubeBeingCarried != null) 
             {
@@ -174,6 +177,14 @@ public class PlayerController : MonoBehaviour
 
 
         }
+    }
+
+    void PressButton()
+    {
+        print("PressButton called");
+        SwitchButton button = interactableTarget.transform.parent.GetComponent<SwitchButton>();
+        button.PressButton();
+        
     }
 
     void ChangeGravityField()
