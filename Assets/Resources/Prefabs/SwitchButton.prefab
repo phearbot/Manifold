@@ -301,6 +301,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 25a9fb42d361f46ad89221f6d301e96e, type: 2}
+  - {fileID: 2100000, guid: 8ef047b34eb635f4bbe3ee2c4ec21be5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -355,7 +356,7 @@ GameObject:
   - component: {fileID: 2177552169247938402}
   - component: {fileID: 256684351383001845}
   m_Layer: 0
-  m_Name: Switch
+  m_Name: SwitchButton
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPressed: 0
   anim: {fileID: 1884092378}
+  door: {fileID: 0}
 --- !u!1 &6931959426189657021
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +696,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2b7ce7c9eb7005642997a7362ad61c29, type: 2}
+  - {fileID: 2100000, guid: 8ef047b34eb635f4bbe3ee2c4ec21be5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

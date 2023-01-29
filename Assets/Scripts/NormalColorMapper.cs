@@ -15,7 +15,7 @@ public class NormalColorMapper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -72,5 +72,24 @@ public class NormalColorMapper : MonoBehaviour
 		mat.SetColor("_yNegColor", yNeg); 
         mat.SetColor("_zPosColor", zPos);
 		mat.SetColor("_zNegColor", zNeg);
+	}
+
+
+	[ContextMenu("Map Switch Button Materials")]
+	void MapSwitchButtonColors()
+    {
+        Material mat;
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchXPos");
+        mat.color = xPos;
+		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchXNeg");
+		mat.color = xNeg;
+		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYPos");
+		mat.color = yPos;
+		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYNeg");
+		mat.color = yNeg;
+		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZPos");
+		mat.color = zPos;
+		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZNeg");
+		mat.color = zNeg;
 	}
 }
