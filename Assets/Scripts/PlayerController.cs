@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
-    bool isGrounded;
+    [SerializeField] bool isGrounded;
 	bool isMoving; // sound hook
     float fallTimer;
     [SerializeField] float fallTimeSoundActivation;
@@ -225,7 +225,9 @@ public class PlayerController : MonoBehaviour
     void CheckForGrounded()
     {
         // This raycast isn't hitting the feet like it should. Maybe try the maincam position point or something?
-		isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
+        //isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);\
+        
+        isGrounded = Physics.SphereCast(transform.position, controller.radius, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
 
         if (isGrounded)
         {

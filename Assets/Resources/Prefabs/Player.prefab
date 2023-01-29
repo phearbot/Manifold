@@ -508,6 +508,7 @@ MonoBehaviour:
   gravity: -0.1
   maxGravityMagnitude: 4000
   groundedRaycastLength: 1.1
+  isGrounded: 0
   fallTimeSoundActivation: 0.1
   reticleCheckDistance: 3.2
   gravityRotationDuration: 0.7
@@ -592,9 +593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ca63b90d347f44ba9cc8e0cecd687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: {r: 1, g: 0, b: 0.82608795, a: 1}
+  xPos: {r: 0.5036346, g: 0.1990477, b: 0.6698113, a: 1}
   yPos: {r: 1, g: 0, b: 0, a: 1}
-  zPos: {r: 0.13751912, g: 1, b: 0, a: 1}
+  zPos: {r: 0.27673605, g: 0.816, b: 0.19094402, a: 1}
   xNeg: {r: 1, g: 0.57853013, b: 0, a: 1}
-  yNeg: {r: 0, g: 0.092921734, b: 1, a: 1}
+  yNeg: {r: 0, g: 0.98346853, b: 1, a: 1}
   zNeg: {r: 1, g: 0.9320468, b: 0, a: 1}
