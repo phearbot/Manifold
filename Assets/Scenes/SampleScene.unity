@@ -292,6 +292,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manifold_Garden_Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 510541876338524956, guid: b15000ab96e2e2140afc665dca607171,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 891184467600660902, guid: b15000ab96e2e2140afc665dca607171,
         type: 3}
       propertyPath: m_RootOrder
@@ -395,6 +400,7 @@ MonoBehaviour:
   worldOffsetZ: 0
   levelPrefab: {fileID: 5508755924709423680, guid: e2c0a9fe4c429464da34b3d957ea20b1,
     type: 3}
+  levelItemsPrefab: {fileID: 0}
   player: {fileID: 1360785286}
 --- !u!4 &197761809
 Transform:
@@ -1120,11 +1126,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8231476817735920852, guid: b15000ab96e2e2140afc665dca607171,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d8cf2a9feb0861741be01fd7ac6fc4ec, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b15000ab96e2e2140afc665dca607171, type: 3}
 --- !u!1001 &2726880189200442767

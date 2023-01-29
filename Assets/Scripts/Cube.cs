@@ -9,6 +9,16 @@ public class Cube : MonoBehaviour
     public bool isBeingCarried = false;
     public Rigidbody rb;
     public CubeHousing cubeHousing;
+    [SerializeField] AudioSource thunk;
+
+    [Header("Grounded Variables")]
+    [SerializeField] bool isGrounded;
+    [SerializeField] float castDistance;
+    [SerializeField] float boxSize;
+    [SerializeField] float fallDurationForSound = .1f;
+    float fallTimer;
+
+
 
 
 	private void Awake()
@@ -36,6 +46,36 @@ public class Cube : MonoBehaviour
             Vector3 direction = carryPoint.position - rb.position;
             rb.velocity = direction * 25;
         }
+
+        CheckForGrounded();
+	}
+
+    void CheckForGrounded()
+    {
+        //print("transform up: " + transform.up);
+        RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one * boxSize / 2, -transform.up, Quaternion.identity, castDistance);
+
+        // Sets grounded to false and only changes it when it's true each frame
+        isGrounded = false;
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.tag != "Interactable")
+            { 
+				isGrounded = true;
+			}
+        }
+
+        if (isGrounded)
+        {
+            if (fallTimer > fallDurationForSound)
+                thunk.Play();
+
+            fallTimer = 0;
+        }
+        else
+			fallTimer += Time.deltaTime;
+
+
 	}
 
 	public void GetCarried(Transform _carryPoint)

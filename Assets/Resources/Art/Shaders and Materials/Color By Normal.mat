@@ -54,12 +54,12 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _TargetNormal: {r: 0, g: -0.99999994, b: 0, a: 0}
+    - _TargetNormal: {r: 0, g: 1, b: 0, a: 0}
     - _Vector3: {r: 0, g: 1, b: 0, a: 0}
     - _xNegColor: {r: 1, g: 0.57853013, b: 0, a: 1}
-    - _xPosColor: {r: 0.5036346, g: 0.1990477, b: 0.6698113, a: 1}
-    - _yNegColor: {r: 0, g: 0.98346853, b: 1, a: 1}
+    - _xPosColor: {r: 1, g: 0, b: 0.82608795, a: 1}
+    - _yNegColor: {r: 0, g: 0.092921734, b: 1, a: 1}
     - _yPosColor: {r: 1, g: 0, b: 0, a: 1}
     - _zNegColor: {r: 1, g: 0.9320468, b: 0, a: 1}
-    - _zPosColor: {r: 0.27673605, g: 0.816, b: 0.19094402, a: 1}
+    - _zPosColor: {r: 0.13751912, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
