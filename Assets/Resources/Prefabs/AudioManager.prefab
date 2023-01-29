@@ -75,8 +75,8 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: PlayerThud
-    clip: {fileID: 8300000, guid: fab22127989fe434ea9017583d4da79b, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: f375510abee94674794316c7602a4c0b, type: 3}
+    volume: 0.196
     pitch: 1
     loop: 0
     playOnAwake: 0
