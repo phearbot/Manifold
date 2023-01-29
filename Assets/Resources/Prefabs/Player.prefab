@@ -507,7 +507,7 @@ MonoBehaviour:
   sprintModifier: 1.2
   gravity: -0.1
   maxGravityMagnitude: 4000
-  groundedRaycastLength: 1.1
+  groundedRaycastLength: 0.8
   isGrounded: 0
   fallTimeSoundActivation: 0.1
   reticleCheckDistance: 3.2

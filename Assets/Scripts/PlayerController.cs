@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
 		am = FindObjectOfType<AudioManager>();
         // am.PlayNoRestartIfPlaying("BGM");
+        am.FadeoutBGM("BGM");
 
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         transform.localPosition = spawnPoint.position;
@@ -197,6 +198,8 @@ public class PlayerController : MonoBehaviour
 
 		currentlyChangingGravity = true;
 		gravityRotationTimer = 0;
+        playerGravityVelocity = Vector3.zero;
+        // controller.velocity = Vector3.zero; can't do this so need to stop my gravity
 
         // Update the material for shader
         // Material normalColorMat = Resources.Load("Art/Shaders and Materials/Color By Normal") as Material;
