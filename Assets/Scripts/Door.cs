@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anims = GetComponentsInChildren<Animator>();   
+        anims = GetComponentsInChildren<Animator>();
     }
 
     // Update is called once per frame

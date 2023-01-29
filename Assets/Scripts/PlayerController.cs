@@ -181,7 +181,6 @@ public class PlayerController : MonoBehaviour
 
     void PressButton()
     {
-        print("PressButton called");
         SwitchButton button = interactableTarget.transform.parent.GetComponent<SwitchButton>();
         button.PressButton();
         
