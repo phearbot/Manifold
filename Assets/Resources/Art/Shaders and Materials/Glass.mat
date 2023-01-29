@@ -53,6 +53,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.16
+    - _MaxFadeDist: 1450
+    - _MinFadeDist: 1400
     - _Offset: 1
     - _QueueControl: 0
     - _QueueOffset: 0
