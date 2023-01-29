@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         // Moves the camera rig in the menu
-        cameraRig.transform.position = Vector3.Lerp(cameraRig.transform.position, moveTarget.position, moveSpeed / 20);
+        cameraRig.transform.position = Vector3.Lerp(cameraRig.transform.position, moveTarget.position, moveSpeed * Time.deltaTime);
 
         if (animationTimer < 10)
 			HandleAnimations();

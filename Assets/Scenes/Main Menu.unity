@@ -247,7 +247,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   am: {fileID: 280826016}
   cameraRig: {fileID: 1837595152}
   moveTarget: {fileID: 168217407}
-  moveSpeed: 0.25
+  moveSpeed: 1.3
   mainMenuBackground: {fileID: 873957692}
   manifoldGarden: {fileID: 1060643511}
   manifoldGardenTime: 6.4

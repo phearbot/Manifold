@@ -10,11 +10,17 @@ public class Cube : MonoBehaviour
     public Rigidbody rb;
     public CubeHousing cubeHousing;
 
-    // Start is called before the first frame update
-    void Start()
+
+	private void Awake()
+	{
+		cpb = GetComponent<CustomPhysicsBody>();
+		rb = GetComponent<Rigidbody>();
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
-        cpb = GetComponent<CustomPhysicsBody>();
-        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame

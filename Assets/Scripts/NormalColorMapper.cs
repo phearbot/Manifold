@@ -72,7 +72,5 @@ public class NormalColorMapper : MonoBehaviour
 		mat.SetColor("_yNegColor", yNeg); 
         mat.SetColor("_zPosColor", zPos);
 		mat.SetColor("_zNegColor", zNeg);
-
-        print("colors should be mapped");
 	}
 }
