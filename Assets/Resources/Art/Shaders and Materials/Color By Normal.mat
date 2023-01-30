@@ -54,7 +54,7 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _TargetNormal: {r: 0, g: -0.00000003185765, b: -1, a: 0}
+    - _TargetNormal: {r: -1, g: 0.00000011920929, b: 0.000000059604645, a: 0}
     - _Vector3: {r: 0, g: 1, b: 0, a: 0}
     - _xNegColor: {r: 1, g: 0.57853013, b: 0, a: 1}
     - _xPosColor: {r: 0.5036346, g: 0.1990477, b: 0.6698113, a: 1}
