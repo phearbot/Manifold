@@ -12,7 +12,6 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [Header("Objects From the Scene")]
-    CharacterController controller;
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject gravityReference;
     [SerializeField] GameObject wasdReference;
@@ -21,14 +20,14 @@ public class PlayerController : MonoBehaviour
     Transform spawnPoint;
 
 	[Header("Movement Variables")]
-    
-	Vector3 playerGravityVelocity;
+	[SerializeField] CharacterController controller;
 	[SerializeField] float moveSpeed = 1f;
     [SerializeField] float sprintModifier = 1.2f;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float maxGravityMagnitude = .3f;
     [SerializeField] float groundedRaycastLength;
     [SerializeField] bool isGrounded;
+	Vector3 playerGravityVelocity;
 	bool isMoving; // sound hook
     float fallTimer;
     [SerializeField] float fallTimeSoundActivation;
@@ -58,12 +57,25 @@ public class PlayerController : MonoBehaviour
     Sprite isInteractingSprite;
     Cube cubeBeingCarried;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+		//Debug.Log("transform.position before: " + transform.position + "; spawn point position: " + spawnPoint.position);
+        //transform.position = spawnPoint.position;
+
+        controller.Move(spawnPoint.position);
+        transform.rotation = spawnPoint.rotation;
+
+		//Debug.Log("transform.position after: " + transform.position);
+		//Debug.Log("Purple treehouse transform position: " + GameObject.FindGameObjectWithTag("Finish").transform.position);
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
 		Cursor.lockState = CursorLockMode.Confined;
 		Cursor.visible = false; 
-        controller = GetComponent<CharacterController>();
+        // controller = GetComponent<CharacterController>();
 
         canvas = FindObjectOfType<Canvas>();
         reticle = canvas.GetComponentInChildren<Image>();
@@ -76,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
         normalColorMat = Resources.Load("Art/Shaders and Materials/Color By Normal") as Material;
 		mapper.MapMaterialColors(normalColorMat);
-		normalColorMat.SetVector("_TargetNormal", Vector3.up);
+		normalColorMat.SetVector("_TargetNormal", transform.up);
 
 
 		am = FindObjectOfType<AudioManager>();
@@ -84,15 +96,15 @@ public class PlayerController : MonoBehaviour
         am.FadeoutBGM("BGM");
 
 
-        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
-        transform.localPosition = spawnPoint.position;
-        transform.rotation = spawnPoint.rotation;
-		normalColorMat.SetVector("_TargetNormal", transform.up);
+
+
 	}
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(Time.time + " : " + transform.position);
+
         if (currentlyChangingGravity)
         {
             StopWalkSound();

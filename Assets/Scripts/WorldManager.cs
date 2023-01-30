@@ -59,7 +59,7 @@ public class WorldManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ClampPlayer();
+        //print(Time.time + " : " + player.transform.position);
     }
 
 	private void FixedUpdate()
