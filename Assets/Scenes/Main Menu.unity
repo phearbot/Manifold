@@ -1047,7 +1047,8 @@ MonoBehaviour:
   worldOffsetZ: 0
   levelPrefab: {fileID: 7582082927574384112, guid: 9ac1b7d030ead4e42ad6933d4e21cafc,
     type: 3}
-  levelItemsPrefab: {fileID: 0}
+  levelItemsPrefab: {fileID: 7123218478742866278, guid: bfb1d63b5db58734ea00d4a7b42f0646,
+    type: 3}
   player: {fileID: 1837595152}
 --- !u!4 &1160025238
 Transform:
@@ -1062,7 +1063,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276893404
 GameObject:
@@ -1346,7 +1347,7 @@ Transform:
   - {fileID: 1793023946}
   - {fileID: 168217407}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 25, z: -36.4}
 --- !u!1 &1840552786
 GameObject:
@@ -1574,5 +1575,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
