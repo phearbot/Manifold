@@ -83,9 +83,11 @@ public class PlayerController : MonoBehaviour
         // am.PlayNoRestartIfPlaying("BGM");
         am.FadeoutBGM("BGM");
 
+
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         transform.localPosition = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
+		normalColorMat.SetVector("_TargetNormal", transform.up);
 	}
 
     // Update is called once per frame
