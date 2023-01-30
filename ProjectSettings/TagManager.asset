@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Cube Housing
+  - Glass
   layers:
   - Default
   - TransparentFX

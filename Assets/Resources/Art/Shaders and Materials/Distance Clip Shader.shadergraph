@@ -82,20 +82,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "0e550b7f3c1442ba97ab62d520d17eb7"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "997253d56c7646f3a4f2b5bf23c3d911"
-                },
-                "m_SlotId": 1323999096
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "3ac64772b6bf4ef7bd71ceb5e0a95385"
                 },
                 "m_SlotId": 0
@@ -1066,9 +1052,6 @@
             "m_Id": "c1a24777a4e74f58b5d2ffcc70fd2ec8"
         },
         {
-            "m_Id": "b3dffcb468c6489eb41a5feb1363db5c"
-        },
-        {
             "m_Id": "9abb2c0ccb3c4408b8e9aeea1401c754"
         }
     ],
@@ -1304,21 +1287,6 @@
             "m_Id": "3f55576c108d485aa09179843a35e9be"
         }
     ]
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "b3dffcb468c6489eb41a5feb1363db5c",
-    "m_Id": 1323999096,
-    "m_DisplayName": "Float",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "_Float",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
 }
 
 {

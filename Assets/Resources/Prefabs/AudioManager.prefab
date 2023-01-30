@@ -81,6 +81,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: GlassThud
+    clip: {fileID: 8300000, guid: a17457d0388d745439ca485b6e48039a, type: 3}
+    volume: 0.196
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   - name: Grav1
     clip: {fileID: 8300000, guid: 9a316cc7347305c46ab78742d51de06c, type: 3}
     volume: 1

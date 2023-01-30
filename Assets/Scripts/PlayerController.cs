@@ -255,11 +255,18 @@ public class PlayerController : MonoBehaviour
         //isGrounded = Physics.Raycast(transform.position, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);\
         
         isGrounded = Physics.SphereCast(transform.position, controller.radius, -wasdReference.transform.up, out RaycastHit hitInfo, groundedRaycastLength);
+        
 
         if (isGrounded)
         {
-            if (fallTimer > 0)
+
+			if (fallTimer > 0)
+            {
+                if (hitInfo.transform.tag == "Glass")
+                    am.Play("GlassThud");
+
                 am.Play("PlayerThud");
+			}
 
 			fallTimer = 0;
             am.Stop("Wind");
