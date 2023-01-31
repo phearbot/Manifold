@@ -17,7 +17,7 @@ public class Cube : MonoBehaviour
     [SerializeField] float boxSize;
     [SerializeField] float fallDurationForSound = .1f;
     float fallTimer;
-
+    public bool onTree = false;
 
 
 
@@ -80,6 +80,7 @@ public class Cube : MonoBehaviour
 
 	public void GetCarried(Transform _carryPoint)
     {
+        UnlockCube();
         isBeingCarried = true;
         carryPoint = _carryPoint;
         cpb.gravityEnabled = false;

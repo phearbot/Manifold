@@ -68,7 +68,8 @@ public class WorldManager : MonoBehaviour
 
         foreach (Cube cube in cubes)
         {
-            ClampObject(cube.gameObject);
+            if (cube != null)
+                ClampObject(cube.gameObject);
         }
 	}
 

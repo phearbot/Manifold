@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4899137158155422497}
   - component: {fileID: 1094095958}
   m_Layer: 7
-  m_Name: Manifold_Garden_Cube
+  m_Name: Cube
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

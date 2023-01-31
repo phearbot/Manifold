@@ -182,6 +182,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (interactableTarget.GetComponent<Cube>() != null)
                     PickupObject();
+                else if
+                    (interactableTarget.GetComponent<CubeSpawner>() != null)
+                    RespawnCubeAndPickup();
                 else if (interactableTarget.transform.parent.GetComponent<SwitchButton>() != null) // hacky, clean this up and in the pressbutton function
                     PressButton();
 			}
@@ -193,6 +196,14 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    void RespawnCubeAndPickup()
+    {
+		am.Play("CubePickup");
+		SwapInteractingSprite(true);
+		cubeBeingCarried = interactableTarget.GetComponent<CubeSpawner>().SpawnNewCube();
+		cubeBeingCarried.GetCarried(carryPoint);
+	}
 
     void PressButton()
     {
@@ -227,7 +238,7 @@ public class PlayerController : MonoBehaviour
     {
         foreach (Cube cube in FindObjectsOfType<Cube>())
         {
-            if (cube.transform.up == transform.up)
+            if (cube.transform.up == transform.up &! cube.onTree)
                 cube.UnlockCube();
             else
                 cube.LockCube();
