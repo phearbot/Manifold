@@ -25,10 +25,15 @@ public class WorldManager : MonoBehaviour
     void Start()
     {
         GenerateWorld();
-        cubes = FindObjectsOfType<Cube>();
+        FindAllCubes();
     }
 
-    void GenerateWorld()
+    public void FindAllCubes()
+    {
+		cubes = FindObjectsOfType<Cube>();
+	}
+
+	void GenerateWorld()
     {
 
         for (int y = -worldRepeatSizeY / 2; y < worldRepeatSizeY / 2 + 1; y++)
@@ -54,7 +59,10 @@ public class WorldManager : MonoBehaviour
         if (levelItemsPrefab != null)
         {
 			Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
-            GameManager.instance.AddPillarsToArray();
+
+            // This check exists for the Main Menu that doesn't have a Game Manager
+            if (GameManager.instance != null)
+                GameManager.instance.AddPillarsToArray();
 		}
 
 

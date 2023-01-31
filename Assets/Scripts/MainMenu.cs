@@ -56,6 +56,11 @@ public class MainMenu : MonoBehaviour
             mainMenuBackground.GetComponent<Animator>().SetTrigger("PressedAnyButton");
 			StartCoroutine(StartGame());
 		}
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 	}
 
     void HandleAnimations()

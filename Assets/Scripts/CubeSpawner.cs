@@ -26,6 +26,7 @@ public class CubeSpawner : MonoBehaviour
         Destroy(spawnedCube.gameObject);
         spawnedCube = Instantiate(cubePrefab, transform.position, Quaternion.Euler(transform.up)).GetComponent<Cube>();
         spawnedCube.transform.rotation = transform.rotation;
-		return spawnedCube;
+        FindObjectOfType<WorldManager>().FindAllCubes();
+        return spawnedCube;
     }
 }
