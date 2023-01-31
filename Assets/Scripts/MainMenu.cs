@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] AudioManager am;
+    [SerializeField] Material colorByNormalMat;
 
     [Header("Camera Variables")]
     [SerializeField] GameObject cameraRig;
@@ -24,13 +24,19 @@ public class MainMenu : MonoBehaviour
     float animationTimer;
     bool passedIntroScreen;
 
+
+
 	// Start is called before the first frame update
 	void Start()
     {
-        am.FadeinBGM("BGM");
+        AudioManager.instance.FadeinBGM("BGM");
 
         animationTimer = 0;
         passedIntroScreen = false;
+
+        // Set the color for the menu
+        colorByNormalMat.SetVector("_TargetNormal", Vector3.back);
+
     }
 
     // Update is called once per frame

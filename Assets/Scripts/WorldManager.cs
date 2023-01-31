@@ -52,7 +52,11 @@ public class WorldManager : MonoBehaviour
 		}
 
         if (levelItemsPrefab != null)
-            Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
+        {
+			Instantiate(levelItemsPrefab, Vector3.zero, Quaternion.identity, transform);
+            GameManager.instance.AddPillarsToArray();
+		}
+
 
     }
 

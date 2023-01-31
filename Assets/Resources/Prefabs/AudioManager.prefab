@@ -179,3 +179,17 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: PillarActivate
+    clip: {fileID: 8300000, guid: df448bcd3ccf036418e4baf81d68414c, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PillarDeactivate
+    clip: {fileID: 8300000, guid: df448bcd3ccf036418e4baf81d68414c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}

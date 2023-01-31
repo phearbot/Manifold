@@ -6,6 +6,7 @@ public class CubeHousing : MonoBehaviour
 {
 	[SerializeField] Cube activationCube;
     [SerializeField] Door[] doors;
+    [SerializeField] Pillar pillar;
 
     bool cubeAtFinalPosition = false;
     [SerializeField] AudioSource humStart;
@@ -48,10 +49,17 @@ public class CubeHousing : MonoBehaviour
         activationCube = _activationCube;
         cubeAtFinalPosition = false;
 
-        foreach (Door door in doors)
+        if (doors.Length > 0)
         {
-            door.OpenDoor();
-        }
+			foreach (Door door in doors)
+			{
+				door.OpenDoor();
+			}
+		}
+
+
+        if (pillar != null)
+            pillar.ActivatePillar();
 
 		am.Play("CubePlace");
 		humStart.Play();
@@ -68,6 +76,9 @@ public class CubeHousing : MonoBehaviour
 		{
 			door.CloseDoor();
 		}
+
+		if (pillar != null)
+			pillar.DeactivatePillar();
 
 		am.Play("CubeRemove");
 		humStart.Stop();

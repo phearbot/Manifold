@@ -68,7 +68,10 @@ public class Cube : MonoBehaviour
         if (isGrounded)
         {
             if (fallTimer > fallDurationForSound)
-                thunk.Play();
+            {
+                print(name + " : " + transform.parent + " : " + transform.position);
+				thunk.Play();
+			}
 
             fallTimer = 0;
         }

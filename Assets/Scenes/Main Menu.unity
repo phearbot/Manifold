@@ -422,18 +422,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &280826016 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6044739535330326621, guid: 088d04ccee11a964186bc9a5cd1c92f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 326867431}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f032e7aad24b54a88508d5a346e712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &326867431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1552,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b3dc5728ce0c0469afe63770e16991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  am: {fileID: 280826016}
+  colorByNormalMat: {fileID: 2100000, guid: d8cf2a9feb0861741be01fd7ac6fc4ec, type: 2}
   cameraRig: {fileID: 1837595152}
   moveTarget: {fileID: 168217407}
   moveSpeed: 6

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject gravityReference;
     [SerializeField] GameObject wasdReference;
-    AudioManager am;
 	Canvas canvas;
     Transform spawnPoint;
 
@@ -91,9 +90,8 @@ public class PlayerController : MonoBehaviour
 		normalColorMat.SetVector("_TargetNormal", transform.up);
 
 
-		am = FindObjectOfType<AudioManager>();
-        // am.PlayNoRestartIfPlaying("BGM");
-        am.FadeoutBGM("BGM");
+        AudioManager.instance.BGMFadeTimer = 10f;
+        AudioManager.instance.FadeoutBGM("BGM");
 
 
 
@@ -199,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
     void RespawnCubeAndPickup()
     {
-		am.Play("CubePickup");
+		AudioManager.instance.Play("CubePickup");
 		SwapInteractingSprite(true);
 		cubeBeingCarried = interactableTarget.GetComponent<CubeSpawner>().SpawnNewCube();
 		cubeBeingCarried.GetCarried(carryPoint);
@@ -230,8 +228,8 @@ public class PlayerController : MonoBehaviour
         // Material normalColorMat = Resources.Load("Art/Shaders and Materials/Color By Normal") as Material;
         normalColorMat.SetVector("_TargetNormal", targetNormal);
 
-        am.Play(mapper.MapNormalToSFX(targetNormal));
-        am.Stop("Wind");
+		AudioManager.instance.Play(mapper.MapNormalToSFX(targetNormal));
+		AudioManager.instance.Stop("Wind");
 	}
 
     void LockAndUnlockCubes()
@@ -247,7 +245,7 @@ public class PlayerController : MonoBehaviour
 
     void PickupObject()
     {
-        am.Play("CubePickup");
+		AudioManager.instance.Play("CubePickup");
 		SwapInteractingSprite(true);
 		cubeBeingCarried = interactableTarget.GetComponent<Cube>();
         cubeBeingCarried.GetCarried(carryPoint);
@@ -255,7 +253,7 @@ public class PlayerController : MonoBehaviour
 
     public void DropObject()
     {
-        am.Play("CubeDrop");
+		AudioManager.instance.Play("CubeDrop");
 		SwapInteractingSprite(false);
 		cubeBeingCarried.GetDropped();
         cubeBeingCarried = null;
@@ -275,19 +273,19 @@ public class PlayerController : MonoBehaviour
 			if (fallTimer > 0)
             {
                 if (hitInfo.transform.tag == "Glass")
-                    am.Play("GlassThud");
+					AudioManager.instance.Play("GlassThud");
 
-                am.Play("PlayerThud");
+				AudioManager.instance.Play("PlayerThud");
 			}
 
 			fallTimer = 0;
-            am.Stop("Wind");
+			AudioManager.instance.Stop("Wind");
 		}
         else
             fallTimer += Time.deltaTime;
 
         if (fallTimer > fallTimeSoundActivation)
-            am.PlayNoRestartIfPlaying("Wind");
+			AudioManager.instance.PlayNoRestartIfPlaying("Wind");
         //print("isGrounded: " + isGrounded + "; velocity sqr mag: " + controller.velocity.sqrMagnitude);
 	}
 
@@ -349,13 +347,13 @@ public class PlayerController : MonoBehaviour
 
     void PlayWalkSound()
     {
-        am.PlayNoRestartIfPlaying("Footstep Run");
+		AudioManager.instance.PlayNoRestartIfPlaying("Footstep Run");
     }
 
     void StopWalkSound()
     {
-        am.Stop("Footstep Step");
-        am.Stop("Footstep Walk");
-        am.Stop("Footstep Run");
+		AudioManager.instance.Stop("Footstep Step");
+		AudioManager.instance.Stop("Footstep Walk");
+		AudioManager.instance.Stop("Footstep Run");
     }
 }
