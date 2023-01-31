@@ -68,28 +68,28 @@ public class NormalColorMapper : MonoBehaviour
     {
         mat.SetColor("_xPosColor", xPos);
         mat.SetColor("_xNegColor", xNeg);
-		mat.SetColor("_yPosColor", yPos);
-		mat.SetColor("_yNegColor", yNeg); 
+        mat.SetColor("_yPosColor", yPos);
+        mat.SetColor("_yNegColor", yNeg);
         mat.SetColor("_zPosColor", zPos);
-		mat.SetColor("_zNegColor", zNeg);
-	}
+        mat.SetColor("_zNegColor", zNeg);
+    }
 
 
-	[ContextMenu("Map Switch Button Materials")]
-	void MapSwitchButtonColors()
+    [ContextMenu("Map Switch Button Materials")]
+    void MapSwitchButtonColors()
     {
         Material mat;
         mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchXPos");
         mat.color = xPos;
-		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchXNeg");
-		mat.color = xNeg;
-		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYPos");
-		mat.color = yPos;
-		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYNeg");
-		mat.color = yNeg;
-		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZPos");
-		mat.color = zPos;
-		mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZNeg");
-		mat.color = zNeg;
-	}
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchXNeg");
+        mat.color = xNeg;
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYPos");
+        mat.color = yPos;
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchYNeg");
+        mat.color = yNeg;
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZPos");
+        mat.color = zPos;
+        mat = Resources.Load<Material>("Art/Shaders and Materials/SwitchZNeg");
+        mat.color = zNeg;
+    }
 }
