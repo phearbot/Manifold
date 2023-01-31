@@ -57,6 +57,7 @@ MonoBehaviour:
   castDistance: 0.025
   boxSize: 1
   fallDurationForSound: 0.1
+  onTree: 0
 --- !u!114 &919132147966588136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityEnabled: 1
-  snapToGrid: 1
+  snapToGrid: 0
   gravityForce: 20
   maxVelocitySqrMagnitude: 8000
 --- !u!54 &919132147966588137
