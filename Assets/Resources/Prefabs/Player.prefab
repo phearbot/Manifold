@@ -184,7 +184,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 8619448723828511122}
   m_Lens:
-    FieldOfView: 57.22092
+    FieldOfView: 67.380135
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 2000
@@ -284,7 +284,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 22
+  m_FocalLength: 18
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -293,7 +293,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 2000
-  field of view: 57.22092
+  field of view: 67.380135
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -504,10 +504,10 @@ MonoBehaviour:
   gravityReference: {fileID: 1970887208}
   wasdReference: {fileID: 3918225676615023738}
   controller: {fileID: 1360785291}
-  moveSpeed: 2
-  sprintModifier: 1.2
-  gravity: -0.1
-  maxGravityMagnitude: 4000
+  moveSpeed: 1.5
+  sprintModifier: 1.8
+  gravity: -0.22
+  maxGravityMagnitude: 4300
   groundedRaycastLength: 0.5
   isGrounded: 0
   fallTimeSoundActivation: 0.1

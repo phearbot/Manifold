@@ -220,6 +220,7 @@ public class PlayerController : MonoBehaviour
         normalColorMat.SetVector("_TargetNormal", targetNormal);
 
         am.Play(mapper.MapNormalToSFX(targetNormal));
+        am.Stop("Wind");
 	}
 
     void LockAndUnlockCubes()
