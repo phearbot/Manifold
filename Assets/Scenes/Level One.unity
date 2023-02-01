@@ -138,6 +138,23 @@ PrefabInstance:
       propertyPath: m_Lens.m_SensorSize.y
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 1360785291, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360785291, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360785291, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf, type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8619448723828511121, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
+        type: 3}
+      propertyPath: groundedRaycastLength
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8619448723828511122, guid: 6de0d8fd9580cfc46ad5f1404fc0bcbf,
         type: 3}
       propertyPath: m_RootOrder
